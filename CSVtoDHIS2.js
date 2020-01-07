@@ -11,7 +11,7 @@ alterState(state => {
 });
 
 createTEI({
-  trackedEntityType: dataValue('trackedEntity')(state),
+  trackedEntityType: 'MCPQUTHX1Ze', // Should this be hardcoded?
   orgUnit: dataValue('csvData.Org Unit UID')(state),
   attributes: state => [
     state.attr('C1O4lnx0Ibz', state.data.csvData.PARTNER), //Partner category
