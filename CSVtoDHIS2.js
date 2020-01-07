@@ -1,18 +1,28 @@
+// This will be added to the next release of language-dhis2 as a standard
+// helper function.
+alterState(state => {
+  state.attr = (id, value) => {
+    return {
+      attribute: id,
+      value: value,
+    };
+  };
+  return state;
+});
+
 createTEI({
   trackedEntityType: dataValue('trackedEntity')(state),
   orgUnit: dataValue('csvData.Org Unit UID')(state),
-  attributes: [
-    {
-      C1O4lnx0Ibz: dataValue('csvData.PARTNER')(state), //Partner category
-      bnQOk4Plo9Z: dataValue('csvData.bnQOk4Plo9Z')(state), //UTNWF Staff
-      TLjYqcKwhxP: dataValue('csvData.TLjYqcKwhxP')(state), //Beneficiary Name
-      ScSWoiqvdp5: dataValue('csvData.ScSWoiqvdp5')(state), //ID No
-      j38AUmNNy18: dataValue('csvData.j38AUmNNy18')(state), //Age
-      F2FjwHE7MTs: dataValue('csvData.F2FjwHE7MTs')(state), //Sex
-      g5QDO6GPgiJ: dataValue('csvData.g5QDO6GPgiJ')(state), //Telephone
-      zC1KsiGDVMk: dataValue('csvData.zC1KsiGDVMk')(state), //Village
-      cUqyRxPt1U7: dataValue('csvData.cUqyRxPt1U7')(state), //Household head --> wrong Id, CONVERT TO BOOLEAN
-    },
+  attributes: state => [
+    state.attr('C1O4lnx0Ibz', state.data.csvData.PARTNER), //Partner category
+    state.attr('bnQOk4Plo9Z', state.data.csvData.bnQOk4Plo9Z), //UTNWF Staff
+    state.attr('TLjYqcKwhxP', state.data.csvData.TLjYqcKwhxP), //Beneficiary Name
+    state.attr('ScSWoiqvdp5', state.data.csvData.ScSWoiqvdp5), //ID No
+    state.attr('j38AUmNNy18', state.data.csvData.j38AUmNNy18), //Age
+    state.attr('F2FjwHE7MTs', state.data.csvData.F2FjwHE7MTs), //Sex
+    state.attr('g5QDO6GPgiJ', state.data.csvData.g5QDO6GPgiJ), //Telephone
+    state.attr('zC1KsiGDVMk', state.data.csvData.zC1KsiGDVMk), //Village
+    state.attr('cUqyRxPt1U7', state.data.csvData.cUqyRxPt1U7), //Household head --> wrong Id, CONVERT TO BOOLEAN
   ],
   enrollments: [
     {
