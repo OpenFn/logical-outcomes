@@ -29,7 +29,7 @@ createTEI({
     state.attr('F2FjwHE7MTs', state.data.csvData.F2FjwHE7MTs), //Sex
     state.attr('g5QDO6GPgiJ', state.data.csvData.g5QDO6GPgiJ), //Telephone
     state.attr('zC1KsiGDVMk', state.data.csvData.zC1KsiGDVMk), //Village
-    //state.attr('cUqyRxPt1U7', state.data.csvData.cUqyRxPt1U7), //Household head --> wrong Id, CONVERT TO BOOLEAN
+    //state.attr('yF9ytRRv4qY', state.data.csvData.yF9ytRRv4qY), //Household head --> wrong attribute Id, CONVERT TO BOOLEAN
     state.attr('cUqyRxPt1U7', state.HHhead) //Houeshold head converted to true/false
   ],
   enrollments: [
@@ -48,7 +48,7 @@ createTEI({
           status: 'COMPLETED',
           storedBy: 'Test',
           orgUnitName: dataValue('csvData.Org unit')(state),
-          attributeCategoryOptions: 'vwGC12Ipn10',
+          attributeCategoryOptions: dataValue('csvData.Category option UID')(state),
           optionSize: 0,
           attributeOptionCombo: 'C1O4lnx0Ibz',
           coordinate: {
