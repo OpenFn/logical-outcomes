@@ -31,30 +31,30 @@ createTEI({
       orgUnit: dataValue('csvData.Org Unit UID')(state),
       enrollmentDate: dataValue('csvData.START DATE (MM/YY)')(state).toString().replace(/\//g,"-"),
       incidentDate: dataValue('csvData.START DATE (MM/YY)')(state).toString().replace(/\//g,"-"),
+      events: [
+        {
+          program: 'NGtZYxE0zFM', //FARM SPECIFIC ACTION PLAN??
+          programStage: 'wewcqVyGL5z', //FARM SPECIFIC ACTION PLAN?
+          orgUnit: dataValue('csvData.Org Unit UID')(state),
+          eventDate: dataValue('csvData.START DATE (MM/YY)')(state),
+          status: 'COMPLETED',
+          storedBy: 'Test',
+          orgUnitName: dataValue('csvData.Org unit')(state),
+          attributeCategoryOptions: 'vwGC12Ipn10',
+          optionSize: 0,
+          attributeOptionCombo: 'C1O4lnx0Ibz',
+          coordinate: {
+            latitude: dataValue('csvData.LATITUDE (NORTH+/ SOUTH-)')(state),
+            longitude: dataValue('csvData.LATITUDE (EAST/ WEST)')(state),
+          },
+          dataValues: [
+          {
+            dataElement: 'vAh7VEB6L0f',
+            value: dataValue('csvData.vAh7VEB6L0f')(state),
+          },
+        ],
+        }]
     },
   ],
-  events: [
-    {
-      program: 'NGtZYxE0zFM', //FARM SPECIFIC ACTION PLAN??
-      programStage: 'wewcqVyGL5z', //FARM SPECIFIC ACTION PLAN?
-      orgUnit: dataValue('csvData.Org Unit UID')(state),
-      eventDate: dataValue('csvData.START DATE (MM/YY)')(state),
-      status: 'COMPLETED',
-      storedBy: 'Test',
-      orgUnitName: dataValue('csvData.Org unit')(state),
-      attributeCategoryOptions: 'vwGC12Ipn10',
-      optionSize: 0,
-      attributeOptionCombo: 'C1O4lnx0Ibz',
-      coordinate: {
-        latitude: dataValue('csvData.LATITUDE (NORTH+/ SOUTH-)')(state),
-        longitude: dataValue('csvData.LATITUDE (EAST/ WEST)')(state),
-      },
-    dataValues: [
-      {
-        dataElement: 'vAh7VEB6L0f',
-        value: dataValue('csvData.vAh7VEB6L0f')(state),
-      },
-    ],
-    }
-    ]
+  
 });
