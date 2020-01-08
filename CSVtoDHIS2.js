@@ -14,7 +14,7 @@ createTEI({
   trackedEntityType: 'MCPQUTHX1Ze', // Should this be hardcoded?
   orgUnit: dataValue('csvData.Org Unit UID')(state),
   attributes: state => [
-    state.attr('C1O4lnx0Ibz', state.data.csvData.PARTNER), //Partner category
+    //state.attr('C1O4lnx0Ibz', state.data.csvData.PARTNER), //Partner category
     state.attr('bnQOk4Plo9Z', state.data.csvData.bnQOk4Plo9Z), //UTNWF Staff
     state.attr('TLjYqcKwhxP', state.data.csvData.TLjYqcKwhxP), //Beneficiary Name
     state.attr('ScSWoiqvdp5', state.data.csvData.ScSWoiqvdp5), //ID No
