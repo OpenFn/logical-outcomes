@@ -59,8 +59,11 @@ createTEI({
           dataValues: [
           {
             dataElement: 'vAh7VEB6L0f',
-            //value: dataValue('csvData.vAh7VEB6L0f')(state),
-            value: state.boolean('state.data.csvData.vAh7VEB6L0f')(state)
+            value: state => {
+              var value = dataValue('csvData.vAh7VEB6L0f')(state);
+              var val = (value!==undefined? value.toLowerCase() : null);
+              return (val==="yes"? true : false);
+            }
           },
         ],
         }]
