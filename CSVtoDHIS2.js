@@ -33,27 +33,28 @@ createTEI({
       incidentDate: dataValue('csvData.START DATE (MM/YY)')(state),
     },
   ],
-});
-
-event({
-  program: 'NGtZYxE0zFM', //FARM SPECIFIC ACTION PLAN??
-  programStage: 'wewcqVyGL5z', //FARM SPECIFIC ACTION PLAN?
-  orgUnit: dataValue('csvData.Org Unit UID')(state),
-  eventDate: dataValue('START DATE (MM/YY)')(state),
-  status: 'COMPLETED',
-  storedBy: 'Test',
-  orgUnitName: dataValue('Org unit')(state),
-  attributeCategoryOptions: 'vwGC12Ipn10',
-  optionSize: 0,
-  attributeOptionCombo: 'C1O4lnx0Ibz',
-  coordinate: {
-    latitude: dataValue('LATITUDE (NORTH+/ SOUTH-)')(state),
-    longitude: dataValue('LATITUDE (EAST/ WEST)')(state),
-  },
-  dataValues: [
+  events: [
     {
-      dataElement: 'vAh7VEB6L0f',
-      value: dataValue('vAh7VEB6L0f')(state),
-    },
-  ],
+      program: 'NGtZYxE0zFM', //FARM SPECIFIC ACTION PLAN??
+      programStage: 'wewcqVyGL5z', //FARM SPECIFIC ACTION PLAN?
+      orgUnit: dataValue('csvData.Org Unit UID')(state),
+      eventDate: dataValue('START DATE (MM/YY)')(state),
+      status: 'COMPLETED',
+      storedBy: 'Test',
+      orgUnitName: dataValue('Org unit')(state),
+      attributeCategoryOptions: 'vwGC12Ipn10',
+      optionSize: 0,
+      attributeOptionCombo: 'C1O4lnx0Ibz',
+      coordinate: {
+        latitude: dataValue('LATITUDE (NORTH+/ SOUTH-)')(state),
+        longitude: dataValue('LATITUDE (EAST/ WEST)')(state),
+      },
+    dataValues: [
+      {
+        dataElement: 'vAh7VEB6L0f',
+        value: dataValue('vAh7VEB6L0f')(state),
+      },
+    ],
+    }
+    ]
 });
