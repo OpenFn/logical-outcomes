@@ -29,8 +29,8 @@ createTEI({
       program: 'NGtZYxE0zFM', //FARM SPECIFIC ACTION PLAN?
       programStage: 'wewcqVyGL5z', //FARM SPECIFIC ACTION PLAN?
       orgUnit: dataValue('csvData.Org Unit UID')(state),
-      enrollmentDate: dataValue('csvData. START DATE (MM/YY)')(state).toString().replace(/\//g,"-"),
-      incidentDate: dataValue('csvData. START DATE (MM/YY)')(state).toString().replace(/\//g,"-"),
+      enrollmentDate: dataValue('csvData.START DATE (MM/YY)')(state).toString().replace(/\//g,"-"),
+      incidentDate: dataValue('csvData.START DATE (MM/YY)')(state).toString().replace(/\//g,"-"),
     },
   ],
   events: [
@@ -38,7 +38,7 @@ createTEI({
       program: 'NGtZYxE0zFM', //FARM SPECIFIC ACTION PLAN??
       programStage: 'wewcqVyGL5z', //FARM SPECIFIC ACTION PLAN?
       orgUnit: dataValue('csvData.Org Unit UID')(state),
-      eventDate: dataValue('csvData. START DATE (MM/YY)')(state),
+      eventDate: dataValue('csvData.START DATE (MM/YY)')(state),
       status: 'COMPLETED',
       storedBy: 'Test',
       orgUnitName: dataValue('csvData.Org unit')(state),
