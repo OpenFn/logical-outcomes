@@ -11,9 +11,9 @@ alterState(state => {
     var val = (value!==undefined? value.toLowerCase() : null);
     return (val==="yes"? true : false);
   };
-  /*var head = state.data.csvData.cUqyRxPt1U7;
+  var head = state.data.csvData.cUqyRxPt1U7;
   var HHhead = (head!==undefined? head.toLowerCase() : null);
-  state.HHhead = (HHhead==="yes"? true : false); */
+  state.HHhead = (HHhead==="yes"? true : false); 
   return state;
 });
 
@@ -30,8 +30,8 @@ createTEI({
     state.attr('g5QDO6GPgiJ', state.data.csvData.g5QDO6GPgiJ), //Telephone
     state.attr('zC1KsiGDVMk', state.data.csvData.zC1KsiGDVMk), //Village
     //state.attr('cUqyRxPt1U7', state.data.csvData.cUqyRxPt1U7), //Household head --> wrong Id, CONVERT TO BOOLEAN
-    //state.attr('cUqyRxPt1U7', state.HHhead)
-    state.attr('cUqyRxPt1U7', state.boolean('state.data.csvData.cUqyRxPt1U7'))
+    state.attr('cUqyRxPt1U7', state.HHhead)
+    //state.attr('cUqyRxPt1U7', state.boolean('state.data.csvData.cUqyRxPt1U7'))
   ],
   enrollments: [
     {
