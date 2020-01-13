@@ -4,7 +4,10 @@ alterState(state => {
   state.attr = (id, value) => {
     return {
       attribute: id,
-      value: value,
+      value: function(value){ 
+        if(value!==undefined){
+          return (value.toLowerCase()==="yes"? true : false);
+        }}
     };
   };
   state.boolean = (value) => {
