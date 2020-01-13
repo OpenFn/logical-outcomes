@@ -8,7 +8,10 @@ alterState(state => {
     };
   };
   state.boolean = (id, value) => {
-    var val = (value!==undefined && value.toLowerCase()==="yes"? true : false);
+    var val = function(value){
+      if(value!==undefined){
+      (value.toLowerCase()==="yes"? true : false);
+    }};
     return {
       attribute: id,
       value: val,
