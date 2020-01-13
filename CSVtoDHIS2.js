@@ -8,11 +8,12 @@ alterState(state => {
     };
   };
   state.boolean = (id, value) => {
-    var val = (value.toLowerCase()==="yes"? true : false);
-    return {
-      attribute: id,
-      value: val,
-    };
+    if(value!==undefined){
+      return {
+       attribute: id,
+       value: (value.toLowerCase()==="yes"? true : false),
+     };
+    }
   };
   return state;
 });
