@@ -4,19 +4,16 @@ alterState(state => {
   state.attr = (id, value) => {
     return {
       attribute: id,
-      value: function(value){ 
-        if(value!==undefined){
-          return (value.toLowerCase()==="yes"? true : false);
-        }}
+      value: value,
     };
   };
-  state.boolean = (value) => {
-    var val = (value!==undefined? value.toLowerCase() : null);
-    return (val==="yes"? true : false);
+  state.boolean = (id, value) => {
+    var val = (value!==undefined && value.toLowerCase()==="yes"? true : false);
+    return {
+      attribute: id,
+      value: val,
+    };
   };
-  var head = state.data.csvData.cUqyRxPt1U7;
-  var HHhead = (head!==undefined? head.toLowerCase() : null);
-  state.HHhead = (HHhead==="yes"? true : false); 
   return state;
 });
 
@@ -32,8 +29,7 @@ createTEI({
     state.attr('F2FjwHE7MTs', state.data.csvData.F2FjwHE7MTs), //Sex
     state.attr('g5QDO6GPgiJ', state.data.csvData.g5QDO6GPgiJ), //Telephone
     state.attr('zC1KsiGDVMk', state.data.csvData.zC1KsiGDVMk), //Village
-    //state.attr('yF9ytRRv4qY', state.data.csvData.yF9ytRRv4qY), //Household head --> wrong attribute Id, CONVERT TO BOOLEAN
-    state.attr('cUqyRxPt1U7', state.data.HHhead) //Houeshold head converted to true/false
+    state.attr('cUqyRxPt1U7', state.data.csvData.cUqyRxPt1U7), //Household head --> wrong attribute Id, CONVERT TO BOOLEAN
   ],
   enrollments: [
     {
