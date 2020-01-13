@@ -30,7 +30,7 @@ createTEI({
     state.attr('g5QDO6GPgiJ', state.data.csvData.g5QDO6GPgiJ), //Telephone
     state.attr('zC1KsiGDVMk', state.data.csvData.zC1KsiGDVMk), //Village
     //state.attr('yF9ytRRv4qY', state.data.csvData.yF9ytRRv4qY), //Household head --> wrong attribute Id, CONVERT TO BOOLEAN
-    state.attr('cUqyRxPt1U7', state.HHhead) //Houeshold head converted to true/false
+    state.attr('cUqyRxPt1U7', state.data.HHhead) //Houeshold head converted to true/false
   ],
   enrollments: [
     {
