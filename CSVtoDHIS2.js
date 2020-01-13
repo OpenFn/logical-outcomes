@@ -22,8 +22,8 @@ createTEI({
     state.attr('F2FjwHE7MTs', state.data.csvData.F2FjwHE7MTs), //Sex
     state.attr('g5QDO6GPgiJ', state.data.csvData.g5QDO6GPgiJ), //Telephone
     state.attr('zC1KsiGDVMk', state.data.csvData.zC1KsiGDVMk), //Village
-    state.attr('cUqyRxPt1U7', (state) =>{
-      var value = (state.data.csvData.cUqyRxPt1U7!==undefined? state.data.csvData.cUqyRxPt1U7.toLowerCase() : null)
+    state.attr('cUqyRxPt1U7', state =>{
+      var value = (state.data.csvData.cUqyRxPt1U7!==undefined? state.data.csvData.cUqyRxPt1U7.toLowerCase() : null);
       return (value==="yes"? true : false);
     }), //Household head --> wrong attribute Id, CONVERT TO BOOLEAN
   ],
