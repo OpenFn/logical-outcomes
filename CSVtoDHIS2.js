@@ -12,6 +12,12 @@ alterState(state => {
       value: value,
     };
   };
+
+  state.dateConvert = (value) =>{
+    var dateArr = (value ? value.split("\/") : null)
+    var newDate = new Date(dateArr[2] + "-" + dateArr[0] + "-" + dateArr[1]);
+    return newDate;
+  }
   return state;
 });
 
@@ -34,14 +40,23 @@ createTEI({
       program: 'NGtZYxE0zFM', //FARM SPECIFIC ACTION PLAN?
       programStage: 'wewcqVyGL5z', //FARM SPECIFIC ACTION PLAN?
       orgUnit: dataValue('csvData.Org Unit UID')(state),
-      enrollmentDate: dataValue('csvData.START DATE (MM/YY)')(state).toString().replace(/\//g,"-"),
-      incidentDate: dataValue('csvData.START DATE (MM/YY)')(state).toString().replace(/\//g,"-"),
+      enrollmentDate: state => {
+        var date = dataValue('csvData.START DATE (MM/YY)')(state) // 4/1/18
+        state.dateConvert(date)
+      },
+      incidentDate: state => {
+        var date = dataValue('csvData.START DATE (MM/YY)')(state) // 4/1/18
+        state.dateConvert(date)
+      },
       events: [
         { //Enrollment 1
           program: 'NGtZYxE0zFM', //FARM SPECIFIC ACTION PLAN
           programStage: 'wewcqVyGL5z', //FARM SPECIFIC ACTION PLAN
           orgUnit: dataValue('csvData.Org Unit UID')(state),
-          eventDate: dataValue('csvData.START DATE (MM/YY)')(state).toString().replace(/\//g,"-"),
+          eventDate: state => {
+            var date = dataValue('csvData.START DATE (MM/YY)')(state) // 4/1/18
+            state.dateConvert(date)
+          },
           status: 'COMPLETED',
           storedBy: 'Test',
           orgUnitName: dataValue('csvData.Org unit')(state),
@@ -64,12 +79,16 @@ createTEI({
           { //Col R
             dataElement: 'IyW6h3oi1Gd',
             value: dataValue('IyW6h3oi1Gd')(state)
-          },
+          }]
+        },
           { //Enrollment 2
             program: 'NGtZYxE0zFM',
-            programStage: 'wewcqVyGL5z', //TECHNOLOGY ADOPTION
+            programStage: 'XjDnSd7whRX', //TECHNOLOGY ADOPTION
             orgUnit: dataValue('csvData.Org Unit UID')(state),
-            eventDate: dataValue('csvData.START DATE (MM/YY)')(state).toString().replace(/\//g,"-"),
+            eventDate: state => {
+              var date = dataValue('csvData.START DATE (MM/YY)')(state) // 4/1/18
+              state.dateConvert(date)
+            },
             status: 'COMPLETED',
             storedBy: 'Test',
             orgUnitName: dataValue('csvData.Org unit')(state),
@@ -104,7 +123,10 @@ createTEI({
             },
             { //Col X
               dataElement: 'VMyJ10uue3t',
-              value: dataValue('VMyJ10uue3t')(state)
+              value: state => {
+                var date = dataValue('VMyJ10uue3t')(state)
+                state.dateConvert(date)
+              }
             },
             { //Col Y
               dataElement: 'yH9GVEG6Pya',
@@ -124,7 +146,10 @@ createTEI({
             },
             { //Col AC
               dataElement: 'gkFvMlQR7mD',
-              value: dataValue('gkFvMlQR7mD')(state)
+              value: state => {
+                var date = dataValue('gkFvMlQR7mD')(state)
+                state.dateConvert(date)
+              }
             },
             { //Col AD
               dataElement: 'GUjfts8o2I3',
@@ -140,7 +165,10 @@ createTEI({
             },
             { //Col AG
               dataElement: 'Vl0MZ8bG3Mj',
-              value: dataValue('Vl0MZ8bG3Mj')(state)
+              value: state => {
+                var date = dataValue('Vl0MZ8bG3Mj')(state)
+                state.dateConvert(date)
+              }
             },
             { //Col AH
               dataElement: 'ZH28Ef03rWf',
@@ -160,7 +188,10 @@ createTEI({
             },
             { //Col AL
               dataElement: 'IXBQ9iyOsj7',
-              value: dataValue('IXBQ9iyOsj7')(state)
+              value: state => {
+                var date = dataValue('IXBQ9iyOsj7')(state)
+                state.dateConvert(date)
+              }
             },
             { //Col AM
               dataElement: 'CdGdpMnhq9N',
@@ -176,7 +207,10 @@ createTEI({
             },
             { //Col AP
               dataElement: 'wIora0v6L1w',
-              value: dataValue('wIora0v6L1w')(state)
+              value: state => {
+                var date = dataValue('wIora0v6L1w')(state)
+                state.dateConvert(date)
+              }
             },
             { //Col AQ
               dataElement: 'lSgPvELDL1f',
@@ -188,7 +222,10 @@ createTEI({
             },
             { //Col AS
               dataElement: 'dtgxdpuv1gi',
-              value: dataValue('dtgxdpuv1gi')(state)
+              value: state => {
+                var date = dataValue('dtgxdpuv1gi')(state)
+                state.dateConvert(date)
+              }
             },
             { //Col AT
               dataElement: 'YZXBjzU3qq6',
@@ -200,7 +237,10 @@ createTEI({
             },
             { //Col AV
               dataElement: 'LmWgNlOgEmJ',
-              value: dataValue('LmWgNlOgEmJ')(state)
+              value: state => {
+                var date = dataValue('LmWgNlOgEmJ')(state)
+                state.dateConvert(date)
+              }
             },
             { //Col AW
               dataElement: 'iADbtBlMxTs',
@@ -212,7 +252,10 @@ createTEI({
             },
             { //Col AY
               dataElement: 'l4pKaxmLOrW',
-              value: dataValue('l4pKaxmLOrW')(state)
+              value: state => {
+                var date = dataValue('l4pKaxmLOrW')(state)
+                state.dateConvert(date)
+              }
             },
             { //Col AZ
               dataElement: 'otlK2nqPJd1',
@@ -224,7 +267,10 @@ createTEI({
             },
             { //Col BB
               dataElement: 'Eh89gu65Xnd',
-              value: dataValue('Eh89gu65Xnd')(state)
+              value: state => {
+                var date = dataValue('Eh89gu65Xnd')(state)
+                state.dateConvert(date)
+              }
             },
             { //Col BC
               dataElement: 'I3mYNeMDixy',
@@ -236,7 +282,10 @@ createTEI({
             },
             { //Col BE
               dataElement: 'PrPEHhALnzl',
-              value: dataValue('PrPEHhALnzl')(state)
+              value: state => {
+                var date = dataValue('PrPEHhALnzl')(state)
+                state.dateConvert(date)
+              }
             },
             { //Col BF
               dataElement: 'Nh894w42Ti4',
@@ -260,7 +309,10 @@ createTEI({
             },
             { //Col BK
               dataElement: 'ylfCWUBbiZk',
-              value: dataValue('ylfCWUBbiZk')(state)
+              value: state => {
+                var date = dataValue('ylfCWUBbiZk')(state)
+                state.dateConvert(date)
+              }
             },
             { //Col BL
               dataElement: 'jpS0aEcFGy8',
@@ -272,7 +324,10 @@ createTEI({
             },
             { //Col BN
               dataElement: 'VOgnzzSuYZX',
-              value: dataValue('VOgnzzSuYZX')(state)
+              value: state => {
+                var date = dataValue('VOgnzzSuYZX')(state)
+                state.dateConvert(date)
+              }
             },
             { //Col BO
               dataElement: 'YdBzuMj0CSh',
@@ -284,12 +339,14 @@ createTEI({
             },
             { //Col BQ
               dataElement: 'HN09RtK91MC',
-              value: dataValue('HN09RtK91MC')(state)
-            },
+              value: state => {
+                var date = dataValue('HN09RtK91MC')(state)
+                state.dateConvert(date)
+              }
+            }
 
         ],
         }]
     },
-  ],
-
+  ]
 });
