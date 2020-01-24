@@ -20,9 +20,6 @@ get(
 );
 
 alterState(state => {
-  // state.tei has been set to the TEI's id, and we get that below.
-  // console.log(`doing thing 1.5: ${state.tei}`);
-
   // Note: we don't care about anything in the response except the TEI id, so we
   // restore state.data to the initial csvData here.
   state.data = state.references[0];
@@ -34,16 +31,13 @@ alterState(state => {
     return newVal;
   };
   state.attr = (id, value) => {
-    //return attribute set with value
+    // return attribute set with value
     return {
       attribute: id,
       value: value,
     };
   };
   state.dateConvert = value => {
-    //convert date to YYYY-MM-DD format from MM/DD/YYYY
-    console.log('ahah: ' + value);
-
     var dateArr = value ? value.split('/') : null;
     if (!dateArr) {
       return '';
@@ -429,7 +423,6 @@ alterState(state => {
     ],
   };
 
-  // console.log(state.body);
   return state;
 });
 
@@ -438,15 +431,8 @@ request({
     user: state.configuration.username,
     pass: state.configuration.password,
   },
-  method: state => {
-    console.log('TEI is: ' + state.tei);
-    return state.tei ? 'PUT' : 'POST';
-  },
-  url: state => {
-    console.log(state.tei);
-    return `${state.configuration.baseUrl}/trackedEntityInstances${state.tei}`;
-  },
-  json: state => {
-    return state.body;
-  },
+  method: state => (state.tei ? 'PUT' : 'POST'),
+  url: state =>
+    `${state.configuration.baseUrl}/trackedEntityInstances${state.tei}`,
+  json: state => state.body,
 });
