@@ -108,6 +108,11 @@ alterState(state => {
                 dataElement: 'IyW6h3oi1Gd',
                 value: dataValue('csvData.IyW6h3oi1Gd')(state),
               },
+              {
+                //Col S
+                dataElement: 'LZ0FOPRvtdm',
+                value: state.boolean(dataValue('csvData.LZ0FOPRvtdm')(state)),
+              },
             ],
           },
           {
@@ -131,11 +136,6 @@ alterState(state => {
               longitude: dataValue('csvData.LATITUDE (EAST/ WEST)')(state),
             },
             dataValues: [
-              {
-                //Col S
-                dataElement: 'LZ0FOPRvtdm',
-                value: dataValue('csvData.LZ0FOPRvtdm')(state),
-              },
               {
                 //Col T
                 dataElement: 'kP5o7Ud1Vd4',
@@ -208,14 +208,13 @@ alterState(state => {
               {
                 //Col AG
                 dataElement: 'Vl0MZ8bG3Mj',
-                value: state.dateConvert(
-                  dataValue('csvData.Vl0MZ8bG3Mj')(state)
-                ),
+                value: dataValue('csvData.Vl0MZ8bG3Mj')(state),
               },
               {
                 //Col AH
                 dataElement: 'ZH28Ef03rWf',
-                value: dataValue('csvData.ZH28Ef03rWf')(state),
+                value: state.dateConvert(
+                  dataValue('csvData.ZH28Ef03rWf')(state)),
               },
               {
                 //Col AI
