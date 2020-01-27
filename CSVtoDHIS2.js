@@ -101,16 +101,12 @@ alterState(state => {
               {
                 //Col Q
                 dataElement: 'vAh7VEB6L0f',
-                value: state => {
-                  var value = dataValue('csvData.vAh7VEB6L0f')(state);
-                  var val = value !== undefined ? value.toLowerCase() : null;
-                  return val === 'yes' ? true : false;
-                },
+                value: state.boolean(dataValue('csvData.HN09RtK91MC')(state)),
               },
               {
                 //Col R
-                dataElement: 'IyW6h3oi1Gd',
-                value: dataValue('IyW6h3oi1Gd')(state),
+                dataElement: 'csvData.IyW6h3oi1Gd',
+                value: dataValue('csvData.IyW6h3oi1Gd')(state),
               },
             ],
           },
