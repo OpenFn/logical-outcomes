@@ -5,7 +5,8 @@ get(
       ou: 'e5CYXI5Ncay',
       ouMode: 'ACCESSIBLE',
       program: 'NGtZYxE0zFM',
-      filter: `nvn9I8VnPgz:LIKE:${state.data.csvData.nvn9I8VnPgz}`,
+      filter: `TLjYqcKwhxP:LIKE:${state.data.csvData.TLjYqcKwhxP}`, //filter by Name
+      //filter: `nvn9I8VnPgz:LIKE:${state.data.csvData.nvn9I8VnPgz}`, //filter by UID
       pageSize: 50,
       page: 1,
       totalPages: true,
