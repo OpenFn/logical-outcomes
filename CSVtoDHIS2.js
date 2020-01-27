@@ -105,7 +105,7 @@ alterState(state => {
               },
               {
                 //Col R
-                dataElement: 'csvData.IyW6h3oi1Gd',
+                dataElement: 'IyW6h3oi1Gd',
                 value: dataValue('csvData.IyW6h3oi1Gd')(state),
               },
             ],
