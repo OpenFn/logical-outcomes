@@ -42,8 +42,8 @@ alterState(state => {
     if (!dateArr) {
       return '';
     }
-    const mm = dateArr[0].length < 10 ? '0' + dateArr[0] : dateArr[0];
-    const dd = dateArr[1].length < 10 ? '0' + dateArr[1] : dateArr[1];
+    const mm = dateArr[0] < 10 ? '0' + dateArr[0] : dateArr[0];
+    const dd = dateArr[1] < 10 ? '0' + dateArr[1] : dateArr[1];
     var newDate = '20' + dateArr[2] + '-' + mm + '-' + dd;
     return newDate;
   };
