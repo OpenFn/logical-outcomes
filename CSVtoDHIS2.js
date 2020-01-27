@@ -1,5 +1,5 @@
 get(
-  '/trackedEntityInstances/query.json',
+  'https://dev.tnc.logicaloutcomes.net/api/29/trackedEntityInstances/query.json',
   {
     query: {
       ou: 'e5CYXI5Ncay',
@@ -26,7 +26,7 @@ alterState(state => {
 
   state.boolean = value => {
     //transform yes/no to boolean
-    var val = value.toString() !== undefined ? value.toLowerCase() : null;
+    var val = value ? value.toString().toLowerCase() : null;
     var newVal = val !== null && val.trim() === 'yes' ? true : false;
     return newVal;
   };
@@ -433,6 +433,6 @@ request({
   },
   method: state => (state.tei ? 'PUT' : 'POST'),
   url: state =>
-    `${state.configuration.baseUrl}/trackedEntityInstances${state.tei}`,
+    `https://dev.tnc.logicaloutcomes.net/api/29/trackedEntityInstances${state.tei}`,
   json: state => state.body,
 });
