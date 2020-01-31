@@ -1,12 +1,13 @@
 get(
   'https://dev.tnc.logicaloutcomes.net/api/29/trackedEntityInstances/query.json',
+  //'/trackedEntityInstances/query.json', //use this path for offline testing
   {
     query: {
       ou: 'e5CYXI5Ncay',
       ouMode: 'ACCESSIBLE',
       program: 'NGtZYxE0zFM',
-      filter: `TLjYqcKwhxP:LIKE:${state.data.csvData.TLjYqcKwhxP}`, //filter by Name
-      //filter: `nvn9I8VnPgz:LIKE:${state.data.csvData.nvn9I8VnPgz}`, //filter by UID
+      filter: `nvn9I8VnPgz:LIKE:${state.data.csvData.nvn9I8VnPgz}`, //query existing TEIs using the Unique Id
+      //filter: `TLjYqcKwhxP:LIKE:${state.data.csvData.TLjYqcKwhxP}`,
       pageSize: 50,
       page: 1,
       totalPages: true,
@@ -19,16 +20,14 @@ get(
     return state;
   }
 );
-
 alterState(state => {
   // Note: we don't care about anything in the response except the TEI id, so we
   // restore state.data to the initial csvData here.
   state.data = state.references[0];
-
   state.boolean = value => {
     //transform yes/no to boolean
-    var val = value ? value.toString().toLowerCase() : null;
-    var newVal = val !== null && val.trim() === 'yes' ? true : false;
+    var val = value !== undefined ? value.toString().toLowerCase() : '';
+    var newVal = val !== null && val.trim() === 'yes' ? true : '';
     return newVal;
   };
   state.attr = (id, value) => {
@@ -48,13 +47,13 @@ alterState(state => {
     var newDate = '20' + dateArr[2] + '-' + mm + '-' + dd;
     return newDate;
   };
-
   state.body = {
     //CREATE TEI
     trackedEntityType: 'MCPQUTHX1Ze',
     orgUnit: state.data.csvData['Org Unit UID'],
     attributes: [
       //state.attr('C1O4lnx0Ibz', state.data.csvData.PARTNER), //Partner category
+      state.attr('nvn9I8VnPgz', state.data.csvData.nvn9I8VnPgz), //Unique Id
       state.attr('bnQOk4Plo9Z', state.data.csvData.bnQOk4Plo9Z), //UTNWF Staff
       state.attr('TLjYqcKwhxP', state.data.csvData.TLjYqcKwhxP), //Beneficiary Name
       state.attr('ScSWoiqvdp5', state.data.csvData.ScSWoiqvdp5), //ID No
@@ -113,7 +112,7 @@ alterState(state => {
                 //Col S
                 dataElement: 'LZ0FOPRvtdm',
                 value: state.boolean(dataValue('csvData.LZ0FOPRvtdm')(state)),
-              },
+              }
             ],
           },
           {
@@ -137,10 +136,47 @@ alterState(state => {
               longitude: dataValue('csvData.LATITUDE (EAST/ WEST)')(state),
             },
             dataValues: [
+              //Select Technology mappings
+              {
+                //1
+                dataElement: 'v0BrGE6G7AQ',
+                value: dataValue('csvData.v0BrGE6G7AQ')(state),
+              },
+              {
+                //2
+                dataElement: 'EEZzeoqGAnw',
+                value: dataValue('csvData.EEZzeoqGAnw')(state),
+              },
+              {
+                //3
+                dataElement: 'W7BZ5guSSNo',
+                value: dataValue('csvData.W7BZ5guSSNo')(state),
+              },
+              {
+                //4
+                dataElement: 'gMhSEmk7iWS',
+                value: dataValue('csvData.gMhSEmk7iWS')(state),
+              },
+              {
+                //5
+                dataElement: 'jISuVoGSmqO',
+                value: dataValue('csvData.jISuVoGSmqO')(state),
+              },
+              {
+                //6
+                dataElement: 'KpEeTQLF48d',
+                value: dataValue('csvData.KpEeTQLF48d')(state),
+              },
+              {
+                //7
+                dataElement: 'kGjccxB7FwQ',
+                value: dataValue('csvData.kGjccxB7FwQ')(state),
+              },
+              /////
               {
                 //Col T
                 dataElement: 'kP5o7Ud1Vd4',
-                value: dataValue('kP5o7Ud1Vd4')(state),
+                value: dataValue('csvData.kP5o7Ud1Vd4')(state),
               },
               {
                 //Col U
@@ -418,10 +454,8 @@ alterState(state => {
       },
     ],
   };
-
   return state;
 });
-
 request({
   auth: {
     user: state.configuration.username,
@@ -430,5 +464,6 @@ request({
   method: state => (state.tei ? 'PUT' : 'POST'),
   url: state =>
     `https://dev.tnc.logicaloutcomes.net/api/29/trackedEntityInstances${state.tei}`,
+    //`${state.configuration.baseUrl}/trackedEntityInstances${state.tei}`, //use this path for offline testing
   json: state => state.body,
 });
