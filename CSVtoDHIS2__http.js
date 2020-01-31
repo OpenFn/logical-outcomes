@@ -5,7 +5,8 @@ get(
       ou: 'e5CYXI5Ncay',
       ouMode: 'ACCESSIBLE',
       program: 'NGtZYxE0zFM',
-      filter: `TLjYqcKwhxP:LIKE:${state.data.csvData.TLjYqcKwhxP}`,
+      filter: `nvn9I8VnPgz:LIKE:${state.data.csvData.nvn9I8VnPgz}`, //query existing TEIs using the Unique Id
+      //filter: `TLjYqcKwhxP:LIKE:${state.data.csvData.TLjYqcKwhxP}`,
       pageSize: 50,
       page: 1,
       totalPages: true,
@@ -18,16 +19,14 @@ get(
     return state;
   }
 );
-
 alterState(state => {
   // Note: we don't care about anything in the response except the TEI id, so we
   // restore state.data to the initial csvData here.
   state.data = state.references[0];
-
   state.boolean = value => {
     //transform yes/no to boolean
-    var val = value.toString() !== undefined ? value.toLowerCase() : null;
-    var newVal = val !== null && val.trim() === 'yes' ? true : false;
+    var val = value !== undefined ? value.toString().toLowerCase() : '';
+    var newVal = val !== null && val.trim() === 'yes' ? true : '';
     return newVal;
   };
   state.attr = (id, value) => {
@@ -42,18 +41,18 @@ alterState(state => {
     if (!dateArr) {
       return '';
     }
-    const mm = dateArr[0].length < 10 ? '0' + dateArr[0] : dateArr[0];
-    const dd = dateArr[1].length < 10 ? '0' + dateArr[1] : dateArr[1];
+    const mm = dateArr[0] < 10 ? '0' + dateArr[0] : dateArr[0];
+    const dd = dateArr[1] < 10 ? '0' + dateArr[1] : dateArr[1];
     var newDate = '20' + dateArr[2] + '-' + mm + '-' + dd;
     return newDate;
   };
-
   state.body = {
     //CREATE TEI
     trackedEntityType: 'MCPQUTHX1Ze',
     orgUnit: state.data.csvData['Org Unit UID'],
     attributes: [
       //state.attr('C1O4lnx0Ibz', state.data.csvData.PARTNER), //Partner category
+      state.attr('nvn9I8VnPgz', state.data.csvData.nvn9I8VnPgz), //Unique Id
       state.attr('bnQOk4Plo9Z', state.data.csvData.bnQOk4Plo9Z), //UTNWF Staff
       state.attr('TLjYqcKwhxP', state.data.csvData.TLjYqcKwhxP), //Beneficiary Name
       state.attr('ScSWoiqvdp5', state.data.csvData.ScSWoiqvdp5), //ID No
@@ -101,17 +100,18 @@ alterState(state => {
               {
                 //Col Q
                 dataElement: 'vAh7VEB6L0f',
-                value: state => {
-                  var value = dataValue('csvData.vAh7VEB6L0f')(state);
-                  var val = value !== undefined ? value.toLowerCase() : null;
-                  return val === 'yes' ? true : false;
-                },
+                value: state.boolean(dataValue('csvData.vAh7VEB6L0f')(state)),
               },
               {
                 //Col R
                 dataElement: 'IyW6h3oi1Gd',
-                value: dataValue('IyW6h3oi1Gd')(state),
+                value: dataValue('csvData.IyW6h3oi1Gd')(state),
               },
+              {
+                //Col S
+                dataElement: 'LZ0FOPRvtdm',
+                value: state.boolean(dataValue('csvData.LZ0FOPRvtdm')(state)),
+              }
             ],
           },
           {
@@ -136,14 +136,9 @@ alterState(state => {
             },
             dataValues: [
               {
-                //Col S
-                dataElement: 'LZ0FOPRvtdm',
-                value: dataValue('csvData.LZ0FOPRvtdm')(state),
-              },
-              {
                 //Col T
                 dataElement: 'kP5o7Ud1Vd4',
-                value: dataValue('kP5o7Ud1Vd4')(state),
+                value: dataValue('csvData.kP5o7Ud1Vd4')(state),
               },
               {
                 //Col U
@@ -212,14 +207,13 @@ alterState(state => {
               {
                 //Col AG
                 dataElement: 'Vl0MZ8bG3Mj',
-                value: state.dateConvert(
-                  dataValue('csvData.Vl0MZ8bG3Mj')(state)
-                ),
+                value: dataValue('csvData.Vl0MZ8bG3Mj')(state),
               },
               {
                 //Col AH
                 dataElement: 'ZH28Ef03rWf',
-                value: dataValue('csvData.ZH28Ef03rWf')(state),
+                value: state.dateConvert(
+                  dataValue('csvData.ZH28Ef03rWf')(state)),
               },
               {
                 //Col AI
@@ -422,10 +416,8 @@ alterState(state => {
       },
     ],
   };
-
   return state;
 });
-
 request({
   auth: {
     user: state.configuration.username,
@@ -433,6 +425,7 @@ request({
   },
   method: state => (state.tei ? 'PUT' : 'POST'),
   url: state =>
+    //`https://engruumsnnvtr.x.pipedream.net`,
     `${state.configuration.baseUrl}/trackedEntityInstances${state.tei}`,
   json: state => state.body,
 });
