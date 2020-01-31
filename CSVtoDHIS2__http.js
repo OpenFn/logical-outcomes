@@ -1,6 +1,6 @@
 get(
-  //'https://dev.tnc.logicaloutcomes.net/api/29/trackedEntityInstances/query.json',
-  '/trackedEntityInstances/query.json',
+  'https://dev.tnc.logicaloutcomes.net/api/29/trackedEntityInstances/query.json',
+  //'/trackedEntityInstances/query.json',
   {
     query: {
       ou: 'e5CYXI5Ncay',
