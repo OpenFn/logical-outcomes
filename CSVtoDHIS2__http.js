@@ -1,4 +1,5 @@
 get(
+  //'https://dev.tnc.logicaloutcomes.net/api/29/trackedEntityInstances/query.json',
   '/trackedEntityInstances/query.json',
   {
     query: {
@@ -135,6 +136,43 @@ alterState(state => {
               longitude: dataValue('csvData.LATITUDE (EAST/ WEST)')(state),
             },
             dataValues: [
+              //Select Technology mappings
+              {
+                //1
+                dataElement: 'v0BrGE6G7AQ',
+                value: dataValue('csvData.v0BrGE6G7AQ')(state),
+              },
+              {
+                //2
+                dataElement: 'EEZzeoqGAnw',
+                value: dataValue('csvData.EEZzeoqGAnw')(state),
+              },
+              {
+                //3
+                dataElement: 'W7BZ5guSSNo',
+                value: dataValue('csvData.W7BZ5guSSNo')(state),
+              },
+              {
+                //4
+                dataElement: 'gMhSEmk7iWS',
+                value: dataValue('csvData.gMhSEmk7iWS')(state),
+              },
+              {
+                //5
+                dataElement: 'jISuVoGSmqO',
+                value: dataValue('csvData.jISuVoGSmqO')(state),
+              },
+              {
+                //6
+                dataElement: 'KpEeTQLF48d',
+                value: dataValue('csvData.KpEeTQLF48d')(state),
+              },
+              {
+                //7
+                dataElement: 'kGjccxB7FwQ',
+                value: dataValue('csvData.kGjccxB7FwQ')(state),
+              },
+              /////
               {
                 //Col T
                 dataElement: 'kP5o7Ud1Vd4',
@@ -425,7 +463,7 @@ request({
   },
   method: state => (state.tei ? 'PUT' : 'POST'),
   url: state =>
-    //`https://engruumsnnvtr.x.pipedream.net`,
-    `${state.configuration.baseUrl}/trackedEntityInstances${state.tei}`,
+    `https://dev.tnc.logicaloutcomes.net/api/29/trackedEntityInstances${state.tei}`,
+    //`${state.configuration.baseUrl}/trackedEntityInstances${state.tei}`,
   json: state => state.body,
 });
