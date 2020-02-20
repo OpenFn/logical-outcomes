@@ -1,5 +1,6 @@
 get(
-  'https://dev.tnc.logicaloutcomes.net/api/29/trackedEntityInstances/query.json',
+  'https://utnwf.or.ke/api/29/trackedEntityInstances/query.json',
+  //'https://dev.tnc.logicaloutcomes.net/api/29/trackedEntityInstances/query.json', //LO Test Env
   //'/trackedEntityInstances/query.json',
   {
     query: {
@@ -7,7 +8,7 @@ get(
       ouMode: 'ACCESSIBLE',
       program: 'NGtZYxE0zFM',
       filter: `nvn9I8VnPgz:LIKE:${state.data.csvData.nvn9I8VnPgz}`, //query existing TEIs using the Unique Id
-      //filter: `TLjYqcKwhxP:LIKE:${state.data.csvData.TLjYqcKwhxP}`,
+      //filter: `TLjYqcKwhxP:LIKE:${state.data.csvData.TLjYqcKwhxP}`, //old filter by Name
       pageSize: 50,
       page: 1,
       totalPages: true,
@@ -27,7 +28,12 @@ alterState(state => {
   state.boolean = value => {
     //transform yes/no to boolean
     var val = value !== undefined ? value.toString().toLowerCase() : '';
-    var newVal = val !== null && val.trim() === 'yes' ? true : '';
+    var newVal = '';
+    if (val !==null && val.trim()==='yes'){
+      newVal = true;
+    } else if ( val!==null && val.trim()==='no'){
+      newVal = false;
+    }
     return newVal;
   };
   state.attr = (id, value) => {
@@ -44,7 +50,8 @@ alterState(state => {
     }
     const mm = dateArr[0] < 10 ? '0' + dateArr[0] : dateArr[0];
     const dd = dateArr[1] < 10 ? '0' + dateArr[1] : dateArr[1];
-    var newDate = '20' + dateArr[2] + '-' + mm + '-' + dd;
+    var newDate = dateArr[2] + '-' + mm + '-' + dd;
+    //var newDate = '20' + dateArr[2] + '-' + mm + '-' + dd;
     return newDate;
   };
   state.body = {
@@ -463,7 +470,8 @@ request({
   },
   method: state => (state.tei ? 'PUT' : 'POST'),
   url: state =>
-    `https://dev.tnc.logicaloutcomes.net/api/29/trackedEntityInstances${state.tei}`,
+    `https://utnwf.or.ke/api/29/trackedEntityInstances${state.tei}`,
+    //`https://dev.tnc.logicaloutcomes.net/api/29/trackedEntityInstances${state.tei}`, //LO Test Env
     //`${state.configuration.baseUrl}/trackedEntityInstances${state.tei}`,
   json: state => state.body,
 });
