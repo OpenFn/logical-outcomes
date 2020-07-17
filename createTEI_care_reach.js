@@ -1,28 +1,29 @@
-alterState(state => {
-    const { body } = state.data;
-  
-    let cleanedSubmission = {};
-  
-    for (const key in body) {
-      switch (body[key]) {
-        case "Development Other":
-          cleanedSubmission[key] = "05. DEV: Other";
-          break;
-  
-        case 'Humanitarian Other':
-          cleanedSubmission[key] = '10. HUM: Other';
-          break;
-  
-        default:
-          cleanedSubmission[key] = body[key];
-          break;
-      }
-    }
-    state.data = cleanedSubmission;
-    console.log(`${JSON.stringify(cleanedSubmission)}`);
-    return state; 
-});
+alterState((state) => {
+  const programMap = {
+    "Humanitarian Sexual, Reproductive and Maternal Health (SRMH)":
+      "09. HUM: SRMH",
+    "Humanitarian A Life Free From Violence (GBV)": "08. HUM: LFFV",
+    "Humanitarian Food & Nutrition Security and Resilience to Climate Change":
+      "07. HUM: FNSCCR",
+    "Humanitarian Access to and Control over Economic Resources":
+      "06. HUM: Economic",
+    "Humanitarian Other": "10. HUM: Other",
+    "Development Sexual, Reproductive and Maternal Health (SRMH)":
+      "04. DEV: SRMH",
+    "Development A Life Free From Violence (GBV)": "03. DEV: LFFV",
+    "Development Food & Nutrition Security and Resilience to Climate Change":
+      "02. DEV: FNSCCR",
+    "Development Access to and Control over Economic Resources":
+      "01. DEV: Economic",
+    "Development Other": "05. DEV: Other",
+  };
 
+  state.program =
+    programMap[`${state.data.csvData.aC1WkFsKqv3}`] ||
+    `${state.data.csvData.aC1WkFsKqv3}`;
+    
+  return state;
+});
 
 createTEI({
   trackedEntityType: "bsDL4dvl2ni",
@@ -59,28 +60,21 @@ createTEI({
     },
     {
       attribute: "aC1WkFsKqv3", //Col H
-      //"value": '04. DEV: SRMH' //Program Classification Type --> Is this text or code? 
-      value: state.data.csvData.aC1WkFsKqv3, //ERROR: Need to specify choice codes
+      //"value": '05. DEV: Other' //<-- desired output when aC1WkFsKqv3=='Development Other'
+      value: "05. DEV: Other", //Need to transform text to classification code
     },
     {
       attribute: "E4D2HUQgWdJ", //Col I
       value: dataValue("csvData.E4D2HUQgWdJ")(state).replace(/,/g, ""),
     },
   ],
-  enrollments: [
-    {
-      orgUnit: dataValue("csvData.orgUnit")(state),//"vQnvY1o8PHz",
-      program: "SHRBw9XXHFk", //Reach Form
-      programStage: "k5vUtGga5yY", //General Info
-      enrollmentDate: dataValue("csvData.Enrollment date")(state),
-      incidentDate: dataValue("csvData.Enrollment date")(state),
-    },
-  ],
+  //   enrollments: [
+  //     {
+  //       orgUnit: dataValue("csvData.orgUnit")(state), //"vQnvY1o8PHz",
+  //       program: "SHRBw9XXHFk", //Reach Form
+  //       programStage: "k5vUtGga5yY", //General Info
+  //       enrollmentDate: dataValue("csvData.Enrollment date")(state),
+  //       incidentDate: dataValue("csvData.Enrollment date")(state),
+  //     },
+  //   ],
 });
-
-alterState(state => {
-    console.log('Data uploaded: ' + `${JSON.stringify(state.data)}`); 
-
-    return state;
-
-}); 
