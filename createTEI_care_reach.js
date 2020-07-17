@@ -61,7 +61,7 @@ createTEI({
     {
       attribute: "aC1WkFsKqv3", //Col H
       //"value": '05. DEV: Other' //<-- desired output when aC1WkFsKqv3=='Development Other'
-      value: "05. DEV: Other", //Need to transform text to classification code
+      value: dataValue("csvData.aC1WkFsKqv3")(state), //Need to transform text to classification code
     },
     {
       attribute: "E4D2HUQgWdJ", //Col I
