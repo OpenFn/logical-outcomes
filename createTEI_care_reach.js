@@ -1,6 +1,6 @@
 //Job to upload CSVs to DHIS2 'REACH' program
 alterState((state) => {
-  const programMap = {
+  state.programMap = {
     'Humanitarian Sexual, Reproductive and Maternal Health (SRMH)':
       '09. HUM: SRMH',
     'Humanitarian A Life Free From Violence (GBV)': '08. HUM: LFFV',
@@ -20,7 +20,7 @@ alterState((state) => {
   };
 
   state.program =
-    programMap[`${state.data.csvData.aC1WkFsKqv3}`] ||
+    state.programMap[`${state.data.csvData.aC1WkFsKqv3}`] ||
     `${state.data.csvData.aC1WkFsKqv3}`;
 
   return state;
@@ -29,7 +29,7 @@ alterState((state) => {
 createTEI({
   trackedEntityType: 'bsDL4dvl2ni',
   orgUnit: dataValue('csvData.orgUnit')(state), //"vQnvY1o8PHz",
-  attributes: [
+  attributes: (state) => [
     {
       attribute: 'INS05jiIWB0', //Col A
       value: dataValue('csvData.Enrollment date')(state), //INS05jiIWB0
@@ -61,8 +61,7 @@ createTEI({
     },
     {
       attribute: 'aC1WkFsKqv3', //Col H
-      //"value": '05. DEV: Other' //<-- desired output when aC1WkFsKqv3=='Development Other'
-      value: dataValue('csvData.aC1WkFsKqv3')(state), //Need to transform text to classification code
+      value: state.programMap[dataValue('csvData.aC1WkFsKqv3')(state)],
     },
     {
       attribute: 'E4D2HUQgWdJ', //Col I
@@ -70,7 +69,6 @@ createTEI({
     },
   ],
   //**QUESTION: Do we enroll TEIs?
-
   //   enrollments: [
   //     {
   //       orgUnit: dataValue("csvData.orgUnit")(state), //"vQnvY1o8PHz",
