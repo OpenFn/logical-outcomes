@@ -10,7 +10,7 @@ alterState((state) => {
     'Non-Registered Office (Engagement)': 'Engagement',
   };
 
-  state.office = state.officeMap[csvData.yvJlth2qQAG] || csvData.yvJlth2qQAG;
+  state.office = officeMap[csvData.yvJlth2qQAG] || csvData.yvJlth2qQAG;
 
   return state;
 });

@@ -1,6 +1,7 @@
 //Job to upload CSVs to DHIS2 'REACH' program
 alterState((state) => {
-  state.programMap = {
+  const { csvData } = state.data;
+  const programMap = {
     'Humanitarian Sexual, Reproductive and Maternal Health (SRMH)':
       '09. HUM: SRMH',
     'Humanitarian A Life Free From Violence (GBV)': '08. HUM: LFFV',
@@ -19,9 +20,7 @@ alterState((state) => {
     'Development Other': '05. DEV: Other',
   };
 
-  state.program =
-    state.programMap[`${state.data.csvData.aC1WkFsKqv3}`] ||
-    `${state.data.csvData.aC1WkFsKqv3}`;
+  state.program = programMap[csvData.aC1WkFsKqv3] || csvData.aC1WkFsKqv3;
 
   return state;
 });
@@ -61,20 +60,20 @@ createTEI({
     },
     {
       attribute: 'aC1WkFsKqv3', //Col H
-      value: state.programMap[dataValue('csvData.aC1WkFsKqv3')(state)],
+      value: state.program,
     },
     {
       attribute: 'E4D2HUQgWdJ', //Col I
       value: dataValue('csvData.E4D2HUQgWdJ')(state).replace(/,/g, ''),
     },
   ],
-    enrollments: [
-      {
-        orgUnit: dataValue("csvData.orgUnit")(state), //"vQnvY1o8PHz",
-        program: "SHRBw9XXHFk", //Reach Form
-        programStage: "k5vUtGga5yY", //General Info
-        enrollmentDate: dataValue("csvData.Enrollment date")(state),
-        incidentDate: dataValue("csvData.Enrollment date")(state),
-      },
-    ],
+  enrollments: [
+    {
+      orgUnit: dataValue('csvData.orgUnit')(state), //"vQnvY1o8PHz",
+      program: 'SHRBw9XXHFk', //Reach Form
+      programStage: 'k5vUtGga5yY', //General Info
+      enrollmentDate: dataValue('csvData.Enrollment date')(state),
+      incidentDate: dataValue('csvData.Enrollment date')(state),
+    },
+  ],
 });
