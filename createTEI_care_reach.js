@@ -1,3 +1,29 @@
+alterState(state => {
+    const { body } = state.data;
+  
+    let cleanedSubmission = {};
+  
+    for (const key in body) {
+      switch (body[key]) {
+        case "Development Other":
+          cleanedSubmission[key] = "05. DEV: Other";
+          break;
+  
+        case 'Humanitarian Other':
+          cleanedSubmission[key] = '10. HUM: Other';
+          break;
+  
+        default:
+          cleanedSubmission[key] = body[key];
+          break;
+      }
+    }
+    state.data = cleanedSubmission;
+    console.log(`${JSON.stringify(cleanedSubmission)}`);
+    return state; 
+});
+
+
 createTEI({
   trackedEntityType: "bsDL4dvl2ni",
   orgUnit: dataValue("csvData.orgUnit")(state), //"vQnvY1o8PHz",
@@ -34,7 +60,7 @@ createTEI({
     {
       attribute: "aC1WkFsKqv3", //Col H
       //"value": '04. DEV: SRMH' //Program Classification Type --> Is this text or code? 
-      value: dataValue("csvData.aC1WkFsKqv3")(state), //ERROR: Need to specify choice codes
+      value: state.data.csvData.aC1WkFsKqv3, //ERROR: Need to specify choice codes
     },
     {
       attribute: "E4D2HUQgWdJ", //Col I
@@ -51,3 +77,10 @@ createTEI({
     },
   ],
 });
+
+alterState(state => {
+    console.log('Data uploaded: ' + `${JSON.stringify(state.data)}`); 
+
+    return state;
+
+}); 
