@@ -21,7 +21,7 @@ alterState((state) => {
   state.program =
     programMap[`${state.data.csvData.aC1WkFsKqv3}`] ||
     `${state.data.csvData.aC1WkFsKqv3}`;
-    
+
   return state;
 });
 
