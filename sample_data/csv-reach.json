@@ -1,0 +1,25 @@
+{
+    "configuration": {
+      "username": "",
+      "password": "",
+      "hostUrl": ""
+    },
+    "data": {
+      "__query_params": {},
+      "csvData": {
+        "": "",
+        "E4D2HUQgWdJ": " 461,479 ",
+        "Enrollment date": "2016-01-01",
+        "KoMyxpIXeHp": "Sudan",
+        "SgQW3vpnhuL": "100006SDN",
+        "aC1WkFsKqv3": "Development Other",
+        "gRaQKQpzOMT": "",
+        "nNbMsTUf3M6": "2020-12-31",
+        "orgUnit": "XywB8DSeyUJ",
+        "qoDbMxYz38O": "EVC Every Voice Counts"
+      },
+      "test": "true",
+      "upload": "REACH_upload_vtest1", 
+      "type": "REACH"
+    }
+  }
