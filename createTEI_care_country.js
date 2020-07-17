@@ -1,6 +1,6 @@
 //Job to upload CSVs to DHIS2 'Country Form' program
 alterState((state) => {
-  const officeMap = {
+  state.officeMap = {
     'Registered Office (Member/Candidate/Affiliate)':
       'Member Candidate or Affiliate',
     'Registered Office (Country Office)': 'Country Office',
@@ -10,7 +10,7 @@ alterState((state) => {
   };
 
   state.office =
-    officeMap[`${state.data.csvData.yvJlth2qQAG}`] ||
+    state.officeMap[`${state.data.csvData.yvJlth2qQAG}`] ||
     `${state.data.csvData.yvJlth2qQAG}`;
 
   return state;
@@ -19,7 +19,7 @@ alterState((state) => {
 createTEI({
   trackedEntityType: 'bsDL4dvl2ni',
   orgUnit: dataValue('csvData.orgUnit')(state), //Col B
-  attributes: [
+  attributes: (state) => [
     {
       attribute: 'INS05jiIWB0', //Col A
       value: dataValue('csvData.Enrollment date')(state), //INS05jiIWB0
@@ -30,8 +30,7 @@ createTEI({
     },
     {
       attribute: 'yvJlth2qQAG', //Col D
-      //Map this value to Office Type --> see above officeMap
-      value: dataValue('csvData.yvJlth2qQAG')(state),
+      value: state.officeMap[state.data.csvData.yvJlth2qQAG],
     },
     {
       attribute: 'SiSTAiVHVIn', //Col E
