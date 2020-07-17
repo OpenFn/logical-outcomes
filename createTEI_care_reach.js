@@ -68,6 +68,8 @@ createTEI({
       value: dataValue("csvData.E4D2HUQgWdJ")(state).replace(/,/g, ""),
     },
   ],
+  //**QUESTION: Do we enroll TEIs?
+
   //   enrollments: [
   //     {
   //       orgUnit: dataValue("csvData.orgUnit")(state), //"vQnvY1o8PHz",
