@@ -68,14 +68,13 @@ createTEI({
       value: dataValue('csvData.E4D2HUQgWdJ')(state).replace(/,/g, ''),
     },
   ],
-  //**QUESTION: Do we enroll TEIs?
-  //   enrollments: [
-  //     {
-  //       orgUnit: dataValue("csvData.orgUnit")(state), //"vQnvY1o8PHz",
-  //       program: "SHRBw9XXHFk", //Reach Form
-  //       programStage: "k5vUtGga5yY", //General Info
-  //       enrollmentDate: dataValue("csvData.Enrollment date")(state),
-  //       incidentDate: dataValue("csvData.Enrollment date")(state),
-  //     },
-  //   ],
+    enrollments: [
+      {
+        orgUnit: dataValue("csvData.orgUnit")(state), //"vQnvY1o8PHz",
+        program: "SHRBw9XXHFk", //Reach Form
+        programStage: "k5vUtGga5yY", //General Info
+        enrollmentDate: dataValue("csvData.Enrollment date")(state),
+        incidentDate: dataValue("csvData.Enrollment date")(state),
+      },
+    ],
 });
