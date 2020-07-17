@@ -1,8 +1,8 @@
 {
     "configuration": {
-      "username": "",
-      "password": "",
-      "hostUrl": ""
+      "username": "aleksa@openfn.org",
+      "password": "Aleksa1234%",
+      "hostUrl": "https://dev.piirs.care.org"
     },
     "data": {
       "__query_params": {},
