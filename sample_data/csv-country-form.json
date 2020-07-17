@@ -5,21 +5,17 @@
       "hostUrl": ""
     },
     "data": {
-      "__query_params": {},
-      "csvData": {
-        "": "",
-        "E4D2HUQgWdJ": " 461,479 ",
-        "Enrollment date": "2016-01-01",
-        "KoMyxpIXeHp": "Sudan",
-        "SgQW3vpnhuL": "100006SDN",
-        "aC1WkFsKqv3": "Development Other",
-        "gRaQKQpzOMT": "",
-        "nNbMsTUf3M6": "2020-12-31",
-        "orgUnit": "XywB8DSeyUJ",
-        "qoDbMxYz38O": "EVC Every Voice Counts"
-      },
-      "test": "true",
-      "upload": "REACH_upload_vtest1", 
-      "type": "REACH"
-    }
+        "__query_params": {},
+        "csvData": {
+          "Enrollment date": "2020-06-30",
+          "KoMyxpIXeHp": "Austria",
+          "SiSTAiVHVIn": "CARE Österreich, Lange Gasse 30/4, A-1080 Vienna, Austria, Europe",
+          "aZFgv0BnZ1c": "care@care.at",
+          "cULiF86pO1R": "+43 1 7150715-0",
+          "orgUnit": "RHKvzamCx6l",
+          "yvJlth2qQAG": "Registered Office (Member/Candidate/Affiliate)"
+        },
+        "test": "true",
+        "upload": "COUNTRY_upload_vtest1"
+      }
   }
