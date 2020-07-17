@@ -1,6 +1,7 @@
 //Job to upload CSVs to DHIS2 'Country Form' program
 alterState((state) => {
-  state.officeMap = {
+  const { csvData } = state.data;
+  const officeMap = {
     'Registered Office (Member/Candidate/Affiliate)':
       'Member Candidate or Affiliate',
     'Registered Office (Country Office)': 'Country Office',
@@ -9,9 +10,7 @@ alterState((state) => {
     'Non-Registered Office (Engagement)': 'Engagement',
   };
 
-  state.office =
-    state.officeMap[`${state.data.csvData.yvJlth2qQAG}`] ||
-    `${state.data.csvData.yvJlth2qQAG}`;
+  state.office = state.officeMap[csvData.yvJlth2qQAG] || csvData.yvJlth2qQAG;
 
   return state;
 });
@@ -19,32 +18,35 @@ alterState((state) => {
 createTEI({
   trackedEntityType: 'bsDL4dvl2ni',
   orgUnit: dataValue('csvData.orgUnit')(state), //Col B
-  attributes: (state) => [
-    {
-      attribute: 'INS05jiIWB0', //Col A
-      value: dataValue('csvData.Enrollment date')(state), //INS05jiIWB0
-    },
-    {
-      attribute: 'KoMyxpIXeHp', //Col C
-      value: dataValue('csvData.KoMyxpIXeHp')(state),
-    },
-    {
-      attribute: 'yvJlth2qQAG', //Col D
-      value: state.officeMap[state.data.csvData.yvJlth2qQAG],
-    },
-    {
-      attribute: 'SiSTAiVHVIn', //Col E
-      value: dataValue('csvData.SiSTAiVHVIn')(state),
-    },
-    {
-      attribute: 'cULiF86pO1R', //Col F
-      value: dataValue('csvData.cULiF86pO1R')(state), //Q: Need to clean phone?
-    },
-    {
-      attribute: 'aZFgv0BnZ1c', //Col G
-      value: dataValue('csvData.aZFgv0BnZ1c')(state),
-    },
-  ],
+  attributes: (state) => {
+    const { csvData } = state.data;
+    return [
+      {
+        attribute: 'INS05jiIWB0', //Col A
+        value: csvData['Enrollment date'], //INS05jiIWB0
+      },
+      {
+        attribute: 'KoMyxpIXeHp', //Col C
+        value: csvData.KoMyxpIXeHp,
+      },
+      {
+        attribute: 'yvJlth2qQAG', //Col D
+        value: state.office,
+      },
+      {
+        attribute: 'SiSTAiVHVIn', //Col E
+        value: csvData.SiSTAiVHVIn,
+      },
+      {
+        attribute: 'cULiF86pO1R', //Col F
+        value: csvData.cULiF86pO1R, //Q: Need to clean phone?
+      },
+      {
+        attribute: 'aZFgv0BnZ1c', //Col G
+        value: csvData.aZFgv0BnZ1c,
+      },
+    ];
+  },
   enrollments: [
     {
       orgUnit: dataValue('csvData.orgUnit')(state),
