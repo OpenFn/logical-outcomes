@@ -16,7 +16,7 @@ alterState((state) => {
 });
 
 createTEI({
-  trackedEntityType: 'bsDL4dvl2ni',
+  trackedEntityType: 'QsALEOPwPrX',//'bsDL4dvl2ni',
   orgUnit: dataValue('csvData.orgUnit')(state), //Col B
   attributes: (state) => {
     const { csvData } = state.data;
