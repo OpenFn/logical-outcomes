@@ -36,5 +36,5 @@ alterState((state) => {
 });
 
 alterState((state) => {
-  return upsertTEI(state.body)(state);
+  return createTEI(state.body)(state);
 });
