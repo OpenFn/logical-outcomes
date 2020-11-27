@@ -6,16 +6,6 @@ alterState((state) => {
     });
   }
 
-  // "csvData": {
-  //   "RxNsHWsucU6": "23-01-1995",
-  //   "ZL4K1hwBdTF": "Bluffing",
-  //   "aX5hD4qUpRW": "N5000841",
-  //   "enrollmentDate": "2020-11-24",
-  //   "lkk7ve7dr6b": "Knowingest",
-  //   "nMsjzduOW4Z": "Female",
-  //   "orgUnit": "EDNOfTDskvJ"
-  // }
-
   const excludeAttributeList = ["orgUnit"];
 
   function cleanAttributes(attributes) {
@@ -39,87 +29,12 @@ alterState((state) => {
   };
 
   delete state.data;
-  //   console.log("State", JSON.stringify(state.body));
-  //   console.log(
-  //     "trackedEntityType",
-  //     JSON.stringify(state.body.trackedEntityType)
-  //   );
 
   cleanAttributes(state.body.attributes);
-
-  //   console.log("Cleaned state: ", JSON.stringify(state));
 
   return state;
 });
 
 alterState((state) => {
-  console.log(`New State: ${JSON.stringify(state, null, 4)}`);
-  return state;
+  return upsertTEI(state.body)(state);
 });
-// createTEI(state);
-upsertTEI({
-  trackedEntityType: "hRqJrTjGWtg",
-  orgUnit: "EDNOfTDskvJ",
-  attributes: [
-    {
-      attribute: "RxNsHWsucU6",
-      value: "23-01-1995",
-    },
-    {
-      attribute: "ZL4K1hwBdTF",
-      value: "Bluffing",
-    },
-    {
-      attribute: "aX5hD4qUpRW",
-      value: "N5000841",
-    },
-    {
-      attribute: "Wj9itiV0fvP",
-      value: "2020-11-24",
-    },
-    {
-      attribute: "lkk7ve7dr6b",
-      value: "Knowingest",
-    },
-    {
-      attribute: "nMsjzduOW4Z",
-      value: "Female",
-    },
-  ],
-  enrollments: [],
-});
-
-/*post("/api/trackedEntityInstances", {
-  body: {
-    trackedEntityType: "hRqJrTjGWtg",
-    orgUnit: "EDNOfTDskvJ",
-    attributes: [
-      {
-        attribute: "RxNsHWsucU6",
-        value: "23-01-1995",
-      },
-      {
-        attribute: "ZL4K1hwBdTF",
-        value: "Bluffing",
-      },
-      {
-        attribute: "aX5hD4qUpRW",
-        value: "N5000841",
-      },
-      {
-        attribute: "Wj9itiV0fvP",
-        value: "2020-11-24",
-      },
-      {
-        attribute: "lkk7ve7dr6b",
-        value: "Knowingest",
-      },
-      {
-        attribute: "nMsjzduOW4Z",
-        value: "Female",
-      },
-    ],
-    enrollments: [],
-  },
-  headers: { "Content-Type": "application/json" },
-})(state);*/
