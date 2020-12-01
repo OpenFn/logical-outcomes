@@ -1,13 +1,13 @@
 alterState(state => {
-  state.data = state.data.csvData[0];  
-  return state; 
-}); 
+  state.data = state.data.csvData[0];
+  return state;
+});
 
 get(
-  'https://training.logicaloutcomes.net/api/29/trackedEntityInstances/query.json',
+  'https://training.logicaloutcomes.net/api/trackedEntityInstances',
   {
     query: {
-      ou: state.data.orgUnit, 
+      ou: state.data.orgUnit,
       ouMode: 'ACCESSIBLE',
       filter: `aX5hD4qUpRW:LIKE:${state.data.aX5hD4qUpRW}`, //query existing TEIs using the Unique Id
       pageSize: 50,
@@ -16,6 +16,7 @@ get(
     },
   },
   state => {
+    console.log('Chaiwa data', state.data);
     const row1 = state.data.rows[0];
     console.log(`Row returned by GET: ${row1}`);
     state.tei = row1 ? '/' + row1[0] + '?strategy=CREATE_AND_UPDATE' : '';
@@ -34,16 +35,16 @@ alterState(state => {
       value: value,
     };
   };
-  
+
   state.body = {
     trackedEntityType: 'hRqJrTjGWtg',
     orgUnit: state.data.orgUnit,
     attributes: [
       state.attr('aX5hD4qUpRW', state.data.aX5hD4qUpRW), //Unique Id
-      state.attr('ZL4K1hwBdTF', state.data.ZL4K1hwBdTF), 
-      state.attr('lkk7ve7dr6b', state.data.lkk7ve7dr6b), 
-      state.attr('nMsjzduOW4Z', state.data.nMsjzduOW4Z), 
-      state.attr('RxNsHWsucU6', state.data.RxNsHWsucU6), 
+      state.attr('ZL4K1hwBdTF', state.data.ZL4K1hwBdTF),
+      state.attr('lkk7ve7dr6b', state.data.lkk7ve7dr6b),
+      state.attr('nMsjzduOW4Z', state.data.nMsjzduOW4Z),
+      state.attr('RxNsHWsucU6', state.data.RxNsHWsucU6),
     ],
     enrollments: [
       {
@@ -63,6 +64,6 @@ request({
   },
   method: state => (state.tei ? 'PUT' : 'POST'),
   url: state =>
-    `https://training.logicaloutcomes.net/api/29/trackedEntityInstances${state.tei}`,
+    `https://training.logicaloutcomes.net/api/trackedEntityInstances${state.tei}`,
   json: state => state.body,
 });
