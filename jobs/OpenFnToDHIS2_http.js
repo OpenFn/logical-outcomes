@@ -25,8 +25,8 @@ alterState(state => {
     });
   }
 
-  delete state.data;
-  cleanAttributes(state.body.attributes);
+  // delete state.data;
+  cleanAttributes(state.data.attributes);
 
   return state;
 });
