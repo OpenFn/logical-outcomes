@@ -17,9 +17,11 @@ get(
   },
   state => {
     console.log('Chaiwa data', state.data);
-    const row1 = state.data.rows[0];
-    console.log(`Row returned by GET: ${row1}`);
-    state.tei = row1 ? '/' + row1[0] + '?strategy=CREATE_AND_UPDATE' : '';
+    const row1 = state.data.trackedEntityInstances[0];
+    console.log(`Row returned by GET: ${JSON.stringify(row1, null, 2)}`);
+    state.tei = row1
+      ? '/' + row1.trackedEntityInstance + '?strategy=CREATE_AND_UPDATE'
+      : '';
     console.log(`Searched for existing TEI: ${state.tei}`);
     return state;
   }
@@ -27,6 +29,7 @@ get(
 alterState(state => {
   // Note: we don't care about anything in the response except the TEI id, so we
   // restore state.data to the initial csvData here.
+  console.log('Chaiwa TEI ', state.tei);
   state.data = state.references[0];
   state.attr = (id, value) => {
     // return attribute set with value
