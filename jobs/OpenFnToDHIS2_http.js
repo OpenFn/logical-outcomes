@@ -1,5 +1,5 @@
 each(
-  dataPath('csvData'),
+  dataPath('csvData[*]'),
   upsertTEI({
     trackedEntityType: 'hRqJrTjGWtg', // DHIS2 id for Person EntityType
     orgUnit: dataValue('orgUnit'),
