@@ -12,6 +12,7 @@ alterState(state => {
 
   const postCsv = async csv => {
     return post(state.configuration.inboxUrl, {
+      //upload tag should match Job 02 trigger
       body: { csvData: csv, upload: 'fakeDemographics' },
     })(state);
   };
