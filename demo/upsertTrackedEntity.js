@@ -7,9 +7,9 @@ get(
   'https://training.logicaloutcomes.net/api/29/trackedEntityInstances/query.json',
   {
     query: {
-      ou: state.data.orgUnit, 
+      ou: dataValue('orgUnit'), 
       ouMode: 'ACCESSIBLE',
-      filter: `aX5hD4qUpRW:LIKE:${state.data.aX5hD4qUpRW}`, //query existing TEIs using the Unique Id
+      filter: `aX5hD4qUpRW:LIKE:${dataValue('aX5hD4qUpRW')}`, //query existing TEIs using the Unique Id
       pageSize: 50,
       page: 1,
       totalPages: true,
@@ -23,6 +23,7 @@ get(
     return state;
   }
 );
+
 alterState(state => {
   // Note: we don't care about anything in the response except the TEI id, so we
   // restore state.data to the initial csvData here.
