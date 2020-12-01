@@ -1,12 +1,18 @@
-alterState((state) => {
-  function getPersonAttributes(obj) {
-    return Object.entries(obj).map((item) => {
-      if (item[0] === "enrollmentDate") item[0] = "Wj9itiV0fvP";
+alterState(state => {
+  const getPersonAttributes = data => {
+    return Object.entries(data).map(item => {
+      if (item[0] === 'enrollmentDate') item[0] = 'Wj9itiV0fvP';
       return { attribute: item[0], value: item[1] };
     });
-  }
+  };
 
-  const excludeAttributeList = ["orgUnit"];
+  state.data.attributes = getPersonAttributes(state.data.csvData);
+
+  return state;
+});
+
+alterState(state => {
+  const excludeAttributeList = ['orgUnit'];
 
   function cleanAttributes(attributes) {
     attributes.forEach((item, index) => {
@@ -19,22 +25,15 @@ alterState((state) => {
     });
   }
 
-  state.body = {
-    trackedEntityType: state.data.trackedEntityType || "hRqJrTjGWtg", // DHIS2 id for Person EntityType
-    orgUnit: state.data.csvData.orgUnit || state.data.orgUnit,
-
-    attributes:
-      state.data.attributes || getPersonAttributes(state.data.csvData),
-    enrollments: [],
-  };
-
   delete state.data;
-
   cleanAttributes(state.body.attributes);
 
   return state;
 });
 
-alterState((state) => {
-  return upsertTEI(state.body)(state);
+upsertTEI({
+  trackedEntityType: 'hRqJrTjGWtg', // DHIS2 id for Person EntityType
+  orgUnit: dataValue('csvData.orgUnit'),
+  attributes: dataValue('attributes'),
+  enrollments: dataValue('enrollments'),
 });
