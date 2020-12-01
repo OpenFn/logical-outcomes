@@ -6,14 +6,14 @@ alterState(state => {
 get(
   'https://training.logicaloutcomes.net/api/trackedEntityInstances',
   {
-    query: {
+    query: state => ({
       ou: state.data.orgUnit,
       ouMode: 'ACCESSIBLE',
       filter: `aX5hD4qUpRW:LIKE:${state.data.aX5hD4qUpRW}`, //query existing TEIs using the Unique Id
       pageSize: 50,
       page: 1,
       totalPages: true,
-    },
+    }),
   },
   state => {
     console.log('Chaiwa data', state.data);
