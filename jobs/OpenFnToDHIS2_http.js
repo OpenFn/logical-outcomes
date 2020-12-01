@@ -37,3 +37,6 @@ upsertTEI({
   attributes: dataValue('attributes'),
   enrollments: dataValue('enrollments'),
 });
+// alterState((state) => {
+//   return createTEI(state.body)(state);
+// });
