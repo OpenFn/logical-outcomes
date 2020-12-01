@@ -33,7 +33,7 @@ alterState(state => {
 
 upsertTEI({
   trackedEntityType: 'hRqJrTjGWtg', // DHIS2 id for Person EntityType
-  orgUnit: dataValue('csvData.orgUnit'),
+  orgUnit: dataValue('orgUnit'),
   attributes: dataValue('attributes'),
   enrollments: dataValue('enrollments'),
 });
