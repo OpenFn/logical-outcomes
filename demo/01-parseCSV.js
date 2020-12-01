@@ -1,3 +1,25 @@
-//Job to parse message into individual rows of data
-//Post each row back to the OpenFn Inbox
-//Output should be several Messages that look like this: https://www.openfn.org/projects/1765/messages/10211878
+//NOTE: Update L16 to match Job 02 Trigger
+alterState(state => {
+  console.log('Received bulk CSV, parsing for upload.');
+  function chunk(arr, chunkSize) {
+    var R = [];
+    for (var i = 0, len = arr.length; i < len; i += chunkSize)
+      R.push(arr.slice(i, i + chunkSize));
+    return R;
+  }
+
+  const csvData = chunk(state.data.csvData, 1);
+
+  const postCsv = async csv => {
+    return post(state.configuration.inboxUrl, {
+      body: { csvData: csv, upload: 'fakeDemographics' },
+    })(state);
+  };
+
+  async function makePosts() {
+    return Promise.all([
+      ...csvData.map(item => postCsv(item)),
+    ]);
+  }
+  return makePosts();
+});
