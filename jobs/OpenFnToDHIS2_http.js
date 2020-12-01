@@ -4,10 +4,15 @@ each(
     trackedEntityType: 'hRqJrTjGWtg', // DHIS2 id for Person EntityType
     orgUnit: dataValue('orgUnit'),
     attributes: state => {
-      console.log(state.data);
-      const attrs = { ...state.data }
+      const attrs = { ...state.data, 'Wj9itiV0fvP': state.data.enrollmentDate };
       delete attrs.orgUnit;
-      return Object.entries(attrs).map(pair => ({attribute: pair[0], value: pair[1]}));
+      delete attrs.enrollmentDate;
+      
+      const attributePairs = Object.entries(attrs).map(pair => ({
+        attribute: pair[0], value: pair[1]
+      }));
+      
+      return attributePairs;
     },
     // enrollments: [] // seems as though we do not want to create enrollments
   })
