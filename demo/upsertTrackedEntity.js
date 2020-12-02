@@ -68,3 +68,8 @@ request({
     `https://training.logicaloutcomes.net/api/trackedEntityInstances${state.tei}`,
   json: state => state.body,
 });
+
+alterState(state => {
+  console.log(`Server response: ${JSON.stringify(state.body, null, 2)}`);
+  return state;
+});
