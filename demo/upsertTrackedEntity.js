@@ -1,6 +1,5 @@
 alterState(state => {
   state.data = state.data.csvData[0] ? state.data.csvData[0] : state.data.csvData;
-  state.data.enrollmentDate.toString().replace(/_/g, ' ');
   console.log(state.data);
   return state;
 });
