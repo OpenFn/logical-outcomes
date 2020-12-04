@@ -1,5 +1,5 @@
 alterState(state => {
-  state.data = state.data.csvData[0];
+  state.data = state.data.csvData[0] ? state.data.csvData[0] : state.data.csvData;
   return state;
 });
 
