@@ -1,5 +1,6 @@
 alterState(state => {
   state.data = state.data.csvData[0] ? state.data.csvData[0] : state.data.csvData;
+  console.log(state.data);
   return state;
 });
 
