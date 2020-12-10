@@ -47,6 +47,8 @@ alterState(state => {
       state.attr('lkk7ve7dr6b', state.data.lkk7ve7dr6b),
       state.attr('nMsjzduOW4Z', state.data.nMsjzduOW4Z),
       state.attr('RxNsHWsucU6', state.data.RxNsHWsucU6),
+      state.attr('mST2gzuBX5n', state.data.mST2gzuBX5n),
+      state.attr('bvhl1vjLL7a', state.data.bvhl1vjLL7a),
     ],
     enrollments: [
       {
