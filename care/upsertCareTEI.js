@@ -1,16 +1,16 @@
 upsertTEI(
-  'w75KJ2mc4zz', // match on 'patientID', a custom external ID in dhis2
+  'aX5hD4qUpRW', //piirs uid
   {
-    trackedEntityType: 'nEenWmSyUEp',
-    orgUnit: 'g8upMTyEZGZ',
+    trackedEntityType: 'bsDL4dvl2ni',
+    orgUnit: 'gixv5Y8nbzp',
     attributes: [
       {
-        attribute: 'w75KJ2mc4zz',
-        value: dataValue('form.first_name')(state),
+        attribute: 'aX5hD4qUpRW',
+        value: '007249ZWE',
       },
       {
-        attribute: 'zDhUuAYrxNC',
-        value: dataValue('form.last_name')(state),
+        attribute: 'MxQPuS9G7hh',
+        value: 'Regional',
       },
     ],
   }
