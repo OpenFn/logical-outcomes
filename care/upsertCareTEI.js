@@ -2,7 +2,7 @@
 upsertTEI(
   'aX5hD4qUpRW', //piirs uid
   {
-    trackedEntityType: 'hRqJrTjGWtg',
+    trackedEntityType: 'bsDL4dvl2ni',
     orgUnit: 'gixv5Y8nbzp',
     attributes: [
       {
