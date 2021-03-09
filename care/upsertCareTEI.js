@@ -14,5 +14,6 @@ upsertTEI(
         value: 'Regional',
       },
     ],
-  }
+  },
+  { strict: false }
 );
