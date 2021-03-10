@@ -4,7 +4,7 @@ each("$.csvData[*]",
   'SgQW3vpnhuL', //piirs uid
   {
     trackedEntityType: 'bsDL4dvl2ni',
-    orgUnit: dataValue('$.OrgUnit'),
+    orgUnit: dataValue('OrgUnit'),
     attributes: [
       {
         attribute: 'aX5hD4qUpRW',
