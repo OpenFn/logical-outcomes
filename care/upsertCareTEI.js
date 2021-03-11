@@ -4,16 +4,19 @@ alterState(state => {
   
   return each(csvData, state => {
     const { data } = state;
+    const ou = data.OrgUnit; 
+    const uid = data.SgQW3vpnhuL;
+    
     return upsertTEI(
       'SgQW3vpnhuL', //piirs uid
       {
         trackedEntityType: 'bsDL4dvl2ni',
-        orgUnit: data.SgQW3vpnhuL,
+        orgUnit: ou,
         //orgUnit: dataValue('OrgUnit')(state),
         attributes: [
           {
             attribute: 'SgQW3vpnhuL',
-            value: data.SgQW3vpnhuL
+            value: uid
             //value: dataValue('SgQW3vpnhuL')(state),
           },
           /*{
