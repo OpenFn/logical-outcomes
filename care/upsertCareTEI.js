@@ -6,6 +6,7 @@ alterState(state => {
     const { data } = state;
     const ou = data.OrgUnit; 
     const uid = data.SgQW3vpnhuL;
+    const geo = data.MxQPuS9G7hh; 
     
     return upsertTEI(
       'SgQW3vpnhuL', //piirs uid
@@ -17,12 +18,11 @@ alterState(state => {
           {
             attribute: 'SgQW3vpnhuL',
             value: uid
-            //value: dataValue('SgQW3vpnhuL')(state),
           },
-          /*{
+          {
             attribute: 'MxQPuS9G7hh',
-            value: dataValue('MxQPuS9G7hh')(state),
-          },*/
+            value: geo,
+          },
         ],
       },
       { strict: false }
@@ -30,7 +30,7 @@ alterState(state => {
   })(state);
 }); 
 
-
+//TODO: CHaiwa to investigate why each(...) returns undefined
 /*each(
   dataPath("csvData[*]"),
   upsertTEI(
