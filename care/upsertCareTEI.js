@@ -19,7 +19,7 @@ each("$.csvData[*]",
       ],
     },
     { strict: false }
-)(state));
+);
 
 /*each(
   dataPath("csvData[*]"),
