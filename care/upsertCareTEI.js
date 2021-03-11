@@ -1,5 +1,5 @@
 //TO UPDATE: https://piirs.care.org/dhis-web-tracker-capture/index.html#/dashboard?tei=J7t4VZTgb1N&program=SHRBw9XXHFk&ou=gixv5Y8nbzp
-beta.each("$.csvData[*]",
+each("$.csvData[*]",
   upsertTEI(
     'SgQW3vpnhuL', //piirs uid
     {
@@ -17,7 +17,7 @@ beta.each("$.csvData[*]",
       ],
     },
     { strict: false }
-));
+)(state));
 
 /*each(
   dataPath("csvData[*]"),
