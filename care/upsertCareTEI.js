@@ -2,14 +2,14 @@
 each(
   dataPath("csvData[*]"),
   upsertTEI(
-    'aX5hD4qUpRW', //piirs uid
+    'SgQW3vpnhuL', //piirs uid
     {
       trackedEntityType: 'bsDL4dvl2ni',
       orgUnit: dataValue('OrgUnit'),
       attributes: [
         {
-          attribute: 'aX5hD4qUpRW',
-          value: dataValue('aX5hD4qUpRW'),
+          attribute: 'SgQW3vpnhuL',
+          value: dataValue('SgQW3vpnhuL'),
         },
         {
           attribute: 'MxQPuS9G7hh',
