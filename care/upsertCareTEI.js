@@ -5,15 +5,15 @@ each(
     'SgQW3vpnhuL', //piirs uid
     {
       trackedEntityType: 'bsDL4dvl2ni',
-      orgUnit: dataValue('OrgUnit'),
+      orgUnit: dataValue('OrgUnit')(state),
       attributes: [
         {
           attribute: 'SgQW3vpnhuL',
-          value: dataValue('SgQW3vpnhuL'),
+          value: dataValue('SgQW3vpnhuL')(state),
         },
         {
           attribute: 'MxQPuS9G7hh',
-          value: dataValue('MxQPuS9G7hh'),
+          value: dataValue('MxQPuS9G7hh')(state),
         },
       ],
     },
