@@ -18,5 +18,5 @@ each(
       ],
     },
     { strict: false }
-  )
+  )(state)
 );
