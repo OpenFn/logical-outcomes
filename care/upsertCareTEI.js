@@ -13,7 +13,6 @@ alterState(state => {
       {
         trackedEntityType: 'bsDL4dvl2ni',
         orgUnit: ou,
-        //orgUnit: dataValue('OrgUnit')(state),
         attributes: [
           {
             attribute: 'SgQW3vpnhuL',
