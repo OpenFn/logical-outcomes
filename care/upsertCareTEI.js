@@ -28,26 +28,3 @@ alterState(state => {
     )(state);
   })(state);
 }); 
-
-//TODO: CHaiwa to investigate why each(...) returns undefined
-/*each(
-  dataPath("csvData[*]"),
-  upsertTEI(
-    'SgQW3vpnhuL', //piirs uid
-    {
-      trackedEntityType: 'bsDL4dvl2ni',
-      orgUnit: dataValue('OrgUnit'),
-      attributes: [
-        {
-          attribute: 'SgQW3vpnhuL',
-          value: dataValue('SgQW3vpnhuL'),
-        },
-        {
-          attribute: 'MxQPuS9G7hh',
-          value: dataValue('MxQPuS9G7hh'),
-        },
-      ],
-    },
-    { strict: false }
-  ));*/
-
