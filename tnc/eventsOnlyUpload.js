@@ -1,5 +1,6 @@
 get(
-  'https://dev.tnc.logicaloutcomes.net/api/29/trackedEntityInstances/query.json', //Test Env
+  'https://utnwf.or.ke/api/29/trackedEntityInstances/query.json',
+  //'https://dev.tnc.logicaloutcomes.net/api/29/trackedEntityInstances/query.json', //LO Test Env
   {
     query: {
       ou: 'e5CYXI5Ncay',
@@ -443,6 +444,7 @@ request({
   method: 'POST',
   //method: state => (state.tei ? 'PUT' : 'POST'),
   url: state =>
-    `https://dev.tnc.logicaloutcomes.net/api/29/events`,
+    `https://utnwf.or.ke/api/29/events`,
+    //`https://dev.tnc.logicaloutcomes.net/api/29/events`,
   json: state => state.body,
 });
