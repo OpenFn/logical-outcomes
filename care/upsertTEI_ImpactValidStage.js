@@ -1,13 +1,10 @@
 //TO UPDATE: https://dev.piirs.care.org/dhis-web-tracker-capture/index.html#/dashboard?tei=J7t4VZTgb1N&program=SHRBw9XXHFk&ou=gixv5Y8nbzp
 upsert('trackedEntityInstances', {
   orgUnit: dataValue('orgUnit'),
-  //trackedEntityInstance: dataValue('trackedEntityInstance'),
-  trackedEntityType: 'bsDL4dvl2ni', //default
-  //featureType: 'NONE',
-  relationships: [],
+  trackedEntityType: 'bsDL4dvl2ni', //default value
   attributes: [
     {
-      attribute: 'SgQW3vpnhuL', //piirs id
+      attribute: 'SgQW3vpnhuL', //piirs id to upsert on
       value: dataValue('SgQW3vpnhuL'),
     },
   ],
