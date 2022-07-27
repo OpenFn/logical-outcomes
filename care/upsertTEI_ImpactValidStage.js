@@ -1,7 +1,7 @@
 upsert(
   'trackedEntityInstances', // resource type (1st arg)
   {
-    // ou: dataValue('orgUnit'), // 409
+    ou: dataValue('orgUnit'), // 409, At least one organisation unit must be specified
     trackedEntityType: 'bsDL4dvl2ni' // 409, Either Program or Tracked entity type should be specified
   }, 
   {
