@@ -1,30 +1,30 @@
-get(
-  'https://testing.piirs.care.org/api/trackedEntityInstances',
-  {
-    query: state => ({
-      ou: state.data.orgUnit,
-      program: state.data.program,
-      ouMode: 'ACCESSIBLE',
-      filter: `SgQW3vpnhuL:LIKE:${state.data.SgQW3vpnhuL}`, //query existing TEIs using the Unique Id
-      pageSize: 50,
-      page: 1,
-      totalPages: true,
-    }),
-  },
-  state => {
-    const row1 = state.data.trackedEntityInstances[0];
-    //console.log(`Row returned by GET: ${JSON.stringify(row1, null, 2)}`);
-    state.tei = row1
-      ? '/' + row1.trackedEntityInstance + '?strategy=CREATE_AND_UPDATE'
-      : '';
-    console.log(`Searched for existing TEI: ${state.tei}`);
-    return state;
-  }
-);
+// get(
+//   'https://testing.piirs.care.org/api/trackedEntityInstances',
+//   {
+//     query: state => ({
+//       ou: state.data.orgUnit,
+//       program: state.data.program,
+//       ouMode: 'ACCESSIBLE',
+//       filter: `SgQW3vpnhuL:LIKE:${state.data.SgQW3vpnhuL}`, //query existing TEIs using the Unique Id
+//       pageSize: 50,
+//       page: 1,
+//       totalPages: true,
+//     }),
+//   },
+//   state => {
+//     const row1 = state.data.trackedEntityInstances[0];
+//     //console.log(`Row returned by GET: ${JSON.stringify(row1, null, 2)}`);
+//     state.tei = row1
+//       ? '/' + row1.trackedEntityInstance + '?strategy=CREATE_AND_UPDATE'
+//       : '';
+//     console.log(`Searched for existing TEI: ${state.tei}`);
+//     return state;
+//   }
+// );
 alterState(state => {
   // Note: we don't care about anything in the response except the TEI id, so we
   // restore state.data to the initial csvData here.
-  state.data = state.references[0];
+  //state.data = state.references[0];
   state.attr = (id, value) => {
     // return attribute set with value
     return {
