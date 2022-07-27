@@ -24,7 +24,7 @@
 alterState(state => {
   // Note: we don't care about anything in the response except the TEI id, so we
   // restore state.data to the initial csvData here.
-  //state.data = state.references[0];
+  { data } = state; 
   state.attr = (id, value) => {
     // return attribute set with value
     return {
