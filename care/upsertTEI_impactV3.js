@@ -170,6 +170,7 @@ alterState(state => {
             notes: [],
             relationships: [],
           };
+  console.log(`Request body: ${JSON.stringify(state.body, null, 2)}`);
   return state;
 });
 request({
