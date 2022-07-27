@@ -42,7 +42,7 @@ alterState(state => {
             enrollment: dataValue('enrollment'),
             // enrollmentStatus: 'ACTIVE',
             // status: 'COMPLETED',
-            eventDate: `${state.data.eventDate}T00:00:00.000`, // '2021-06-30T00:00:00.000'
+            eventDate: `${data.eventDate}T00:00:00.000`, // '2021-06-30T00:00:00.000'
             //'attributeCategoryOptions': 'xYerKDKCefk',
             //'attributeOptionCombo': 'HllvX50cXC0',
             //'completedDate': '2021-10-06T00:00:00.000',
