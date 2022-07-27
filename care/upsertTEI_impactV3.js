@@ -25,7 +25,7 @@ alterState(state => {
   // Note: we don't care about anything in the response except the TEI id, so we
   // restore state.data to the initial csvData here.
   const { data } = state; 
-  state.attr = (id, value) => {
+  state.dataEl = (id, value) => {
     // return attribute set with value
     return {
       dataElement: id,
@@ -35,20 +35,20 @@ alterState(state => {
 
   state.body = {
             program: data.program,
-            //event: 'EZYHKe59NmY',
             programStage: data.programStage,
             orgUnit: data.orgUnit,
             trackedEntityInstance: data.trackedEntityInstance,
             enrollment: data.enrollment,
+            eventDate: `${data.eventDate}T00:00:00.000`, // '2021-06-30T00:00:00.000'
             // enrollmentStatus: 'ACTIVE',
             // status: 'COMPLETED',
-            eventDate: `${data.eventDate}T00:00:00.000`, // '2021-06-30T00:00:00.000'
+            // event: 'EZYHKe59NmY',
             //'attributeCategoryOptions': 'xYerKDKCefk',
             //'attributeOptionCombo': 'HllvX50cXC0',
             //'completedDate': '2021-10-06T00:00:00.000',
             //'completedBy': 'alokp@careindia.org',
             dataValues: [
-              state.attr('UeDs5pHE0Gm', state.data.UeDs5pHE0Gm),
+              state.dataEl('UeDs5pHE0Gm', state.data.UeDs5pHE0Gm),
               // {
               //     'lastUpdated': '2021-10-05T19:06:25.441',
               //     'storedBy': 'alokp@careindia.org',
