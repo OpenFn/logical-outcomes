@@ -4,6 +4,7 @@ upsert(
   {
     orgUnit: dataValue('orgUnit'),
     trackedEntityType: 'bsDL4dvl2ni', //default value
+    program: dataValue('program'),
     attributes: [
       {
         attribute: 'SgQW3vpnhuL', //piirs id to upsert on
