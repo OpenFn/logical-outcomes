@@ -11,11 +11,11 @@ upsert(
         value: dataValue('SgQW3vpnhuL'),
       },
     ],
-    enrollments: [
+    //enrollments: [
       {
         program: dataValue('program'),
         orgUnit: dataValue('orgUnit'),
-        trackedEntityInstance: dataValue('trackedEntityInstance'),
+       // trackedEntityInstance: dataValue('trackedEntityInstance'),
         enrollment: dataValue('enrollment'),
         trackedEntityType: 'bsDL4dvl2ni',
         //status: 'ACTIVE',
@@ -27,7 +27,7 @@ upsert(
             //event: 'EZYHKe59NmY',
             programStage: dataValue('programStage'),
             orgUnit: dataValue('orgUnit'),
-            trackedEntityInstance: dataValue('trackedEntityInstance'),
+            //trackedEntityInstance: dataValue('trackedEntityInstance'),
             enrollment: dataValue('enrollment'),
             trackedEntityType: 'bsDL4dvl2ni',
             // enrollmentStatus: 'ACTIVE',
