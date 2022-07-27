@@ -1,4 +1,4 @@
-upsert('trackedEntityInstances', {
+upsert('trackedEntityInstances', {}, {
   orgUnit: dataValue('orgUnit'),
   trackedEntityType: 'bsDL4dvl2ni', //default value
   attributes: [
