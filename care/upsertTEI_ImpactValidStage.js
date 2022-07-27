@@ -16,25 +16,12 @@ update('trackedEntityInstances', dataValue('trackedEntityInstance'), {
   //featureType: 'NONE',
   enrollments: [],
   relationships: [],
-  // attributes: [
-  //   {
-  //     lastUpdated: '2016-01-12T00:00:00.000',
-  //     displayName: 'Last name',
-  //     created: '2016-01-12T00:00:00.000',
-  //     valueType: 'TEXT',
-  //     attribute: 'zDhUuAYrxNC',
-  //     value: 'Russell',
-  //   },
-  //   {
-  //     lastUpdated: '2016-01-12T00:00:00.000',
-  //     code: 'MMD_PER_NAM',
-  //     displayName: 'First name',
-  //     created: '2016-01-12T00:00:00.000',
-  //     valueType: 'TEXT',
-  //     attribute: 'w75KJ2mc4zz',
-  //     value: 'Catherine',
-  //   },
-  // ],
+  attributes: [
+    {
+      attribute: 'SgQW3vpnhuL',
+      value: dataValue('SgQW3vpnhuL'),
+    }
+  ],
 });
   
   
