@@ -13,7 +13,7 @@ get(
   },
   state => {
     const row1 = state.data.trackedEntityInstances[0];
-    console.log(`Row returned by GET: ${JSON.stringify(row1, null, 2)}`);
+    //console.log(`Row returned by GET: ${JSON.stringify(row1, null, 2)}`);
     state.tei = row1
       ? '/' + row1.trackedEntityInstance + '?strategy=CREATE_AND_UPDATE'
       : '';
@@ -42,7 +42,7 @@ alterState(state => {
             enrollment: dataValue('enrollment'),
             // enrollmentStatus: 'ACTIVE',
             // status: 'COMPLETED',
-            eventDate: dataValue('eventDate'), // '2021-06-30T00:00:00.000'
+            eventDate: `${state.data.eventDate}T00:00:00.000`, // '2021-06-30T00:00:00.000'
             //'attributeCategoryOptions': 'xYerKDKCefk',
             //'attributeOptionCombo': 'HllvX50cXC0',
             //'completedDate': '2021-10-06T00:00:00.000',
