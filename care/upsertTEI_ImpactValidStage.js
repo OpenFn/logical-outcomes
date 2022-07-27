@@ -2,13 +2,13 @@ upsert(
   'trackedEntityInstances', // resource type (1st arg)
   {}, // query (2nd arg)
   {
-    orgUnit: dataValue('orgUnit'),
+    orgUnit: dataValue('orgUnit')(state),
     trackedEntityType: 'bsDL4dvl2ni',
-    program: dataValue('program'),
+    program: dataValue('program')(state),
     attributes: [
       {
         attribute: 'SgQW3vpnhuL', //piirs id to upsert on
-        value: dataValue('SgQW3vpnhuL'),
+        value: dataValue('SgQW3vpnhuL')(state),
       },
     ],
     //Commenting out temporarily to test basic upsert operation
