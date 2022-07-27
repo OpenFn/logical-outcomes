@@ -11,7 +11,7 @@ upsert(
         value: dataValue('SgQW3vpnhuL'),
       },
     ],
-    //enrollments: [
+    /* enrollments: [
       {
         program: dataValue('program'),
         orgUnit: dataValue('orgUnit'),
@@ -163,6 +163,6 @@ upsert(
           },
         ],
       },
-    ],
+    ], */
   }
 );
