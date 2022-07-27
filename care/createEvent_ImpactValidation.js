@@ -15,6 +15,7 @@ alterState(state => {
     trackedEntityInstance: data.trackedEntityInstance,
     enrollment: data.enrollment,
     eventDate: `${data.eventDate}T00:00:00.000`, // format;'2021-06-30T00:00:00.000'
+    status: 'COMPLETED',
     // enrollmentStatus: 'ACTIVE',
     // status: 'COMPLETED',
     // event: 'EZYHKe59NmY',
@@ -134,6 +135,8 @@ alterState(state => {
       state.dataEl('d7kxsVHcrlR', state.data.d7kxsVHcrlR),
       state.dataEl('ZcrhvA0xVeq', state.data.ZcrhvA0xVeq),
     ],
+     notes: [],
+     relationships: [],
   };
   console.log(`Request body: ${JSON.stringify(state.body, null, 2)}`);
   return state;
