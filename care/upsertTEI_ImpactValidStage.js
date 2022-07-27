@@ -11,7 +11,7 @@ upsert(
     attributes: [
       {
         attribute: 'SgQW3vpnhuL', //piirs id to upsert on
-        value: dataValue('SgQW3vpnhuL')(state),
+        value: dataValue('SgQW3vpnhuL'),
       },
     ],
     //Commenting out temporarily to test basic upsert operation
