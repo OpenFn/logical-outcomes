@@ -1,6 +1,9 @@
 upsert(
   'trackedEntityInstances', // resource type (1st arg)
-  { ou: dataValue('orgUnit'), trackedEntityType: 'bsDL4dvl2ni' }, // query (2nd arg)
+  {
+    // ou: dataValue('orgUnit'), // 409
+    trackedEntityType: 'bsDL4dvl2ni' // 409, Either Program or Tracked entity type should be specified
+  }, 
   {
     orgUnit: dataValue('orgUnit'),
     trackedEntityType: 'bsDL4dvl2ni',
