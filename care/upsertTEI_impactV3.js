@@ -24,7 +24,7 @@
 alterState(state => {
   // Note: we don't care about anything in the response except the TEI id, so we
   // restore state.data to the initial csvData here.
-  { data } = state; 
+  const { data } = state; 
   state.attr = (id, value) => {
     // return attribute set with value
     return {
@@ -34,7 +34,7 @@ alterState(state => {
   };
 
   state.body = {
-            program: dataValue('program'),
+            program: data.program,
             //event: 'EZYHKe59NmY',
             programStage: dataValue('programStage'),
             orgUnit: dataValue('orgUnit'),
