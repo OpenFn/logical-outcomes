@@ -45,7 +45,7 @@ alterState(state => {
         orgUnit: state.data.orgUnit,
         enrollmentDate: state.data.enrollmentDate,
         incidentDate: state.data.enrollmentDate,
-        /*events: [
+        events: [
           {
             program: dataValue('program'),
             //event: 'EZYHKe59NmY',
@@ -183,7 +183,7 @@ alterState(state => {
             notes: [],
             relationships: [],
           },
-        ], */
+        ], 
       },
     ],
   };
