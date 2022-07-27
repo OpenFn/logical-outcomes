@@ -3,7 +3,7 @@ upsert(
   {}, // query (2nd arg)
   {
     orgUnit: dataValue('orgUnit'),
-    trackedEntityType: 'bsDL4dvl2ni', //default value
+    trackedEntityType: 'bsDL4dvl2ni',
     program: dataValue('program'),
     attributes: [
       {
