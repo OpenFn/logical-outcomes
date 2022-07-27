@@ -28,6 +28,7 @@ upsert(
             orgUnit: dataValue('orgUnit'),
             trackedEntityInstance: dataValue('trackedEntityInstance'),
             enrollment: dataValue('enrollment'),
+            trackedEntityType: 'bsDL4dvl2ni',
             // enrollmentStatus: 'ACTIVE',
             // status: 'COMPLETED',
             //eventDate: '2021-06-30T00:00:00.000',
