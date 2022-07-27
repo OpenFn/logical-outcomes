@@ -1,6 +1,6 @@
 upsert(
   'trackedEntityInstances', // resource type (1st arg)
-  {}, // query (2nd arg)
+  { ou: dataValue('orgUnit') }, // query (2nd arg)
   {
     orgUnit: dataValue('orgUnit'),
     trackedEntityType: 'bsDL4dvl2ni',
