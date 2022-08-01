@@ -147,7 +147,7 @@ request({
     pass: state.configuration.password,
   },
   method: 'POST',
-  url: 'https://testing.piirs.care.org/api/events',
+  url: 'https://piirs.care.org/api/events',
   json: state => state.body,
 });
 
