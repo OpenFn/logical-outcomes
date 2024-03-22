@@ -5,7 +5,6 @@ fn(state => {
 });
 
 //TODO: Consider if we will always create or if we need to UPSERT the TEIs ======//
-//TODO: Consider if enrollement will already exist or not =========//
 createTEI({
   trackedEntityType: 'bsDL4dvl2ni', //hardcoded for Reach form
   orgUnit: dataValue('csvData.orgUnit')(state), //e.g., "Il7prf3KXCf",
@@ -322,14 +321,5 @@ createTEI({
       attribute: 'XfSu5HUNznx', //Col CA ind_instruction
       value: dataValue('csvData.XfSu5HUNznx')(state),
     },
-  ],
-  enrollments: [
-    {
-      orgUnit: dataValue('csvData.orgUnit')(state), //e.g., "Il7prf3KXCf",
-      program: 'oMmNYMeUSKX', //REACH AND IMPACT FORM
-      //programStage: 'k5vUtGga5yY', //General Info //OLD MAPPING FROM '22 import
-      enrollmentDate: dataValue('csvData.Enrollment date')(state),
-      incidentDate: dataValue('csvData.Enrollment date')(state),
-    },
-  ],
+  ]
 });
