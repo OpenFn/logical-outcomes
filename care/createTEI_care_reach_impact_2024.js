@@ -18,10 +18,10 @@ fn(state => {
           attribute: 'MxQPuS9G7hh', //Col G geoscope
           value: r.MxQPuS9G7hh,
         },
-        {
-          attribute: 'vFRzB344yiC', //Col H generated_id
-          value: r.vFRzB344yiC,
-        },
+        // {
+        //   attribute: 'vFRzB344yiC', //Col H generated_id
+        //   value: r.vFRzB344yiC,
+        // },
         {
           attribute: 'SgQW3vpnhuL', //Col I piirs_duid
           value: r.SgQW3vpnhuL,
