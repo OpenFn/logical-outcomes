@@ -4,6 +4,7 @@ fn(state => {
     return {
       trackedEntityType: 'bsDL4dvl2ni', //hardcoded for Reach form
       orgUnit: r.orgUnit, //e.g., "Il7prf3KXCf",
+      filter: [`SgQW3vpnhuL:EQ:${r.SgQW3vpnhuL}`],
       attributes: [
         {
           attribute: 'INS05jiIWB0', //Col E date_start
@@ -17,10 +18,10 @@ fn(state => {
           attribute: 'MxQPuS9G7hh', //Col G geoscope
           value: r.MxQPuS9G7hh,
         },
-        {
-          attribute: 'vFRzB344yiC', //Col H generated_id
-          value: r.vFRzB344yiC,
-        },
+        // {
+        //   attribute: 'vFRzB344yiC', //Col H generated_id
+        //   value: r.vFRzB344yiC,
+        // },
         {
           attribute: 'SgQW3vpnhuL', //Col I piirs_duid
           value: r.SgQW3vpnhuL,
@@ -323,29 +324,32 @@ fn(state => {
   return state;
 });
 
-// send data to DHIS2
-//TODO: Consider if we will always create or if we need to UPSERT the TEIs ======//
-create('tracker', state => ({ trackedEntities: state.teis }), {
-  params: {
-    importStrategy: 'CREATE_AND_UPDATE',
-    atomicMode: 'OBJECT',
-    async: 'false',
-  },
-});
+/**
+ * Send data to DHIS2
+ * Since we have lot's of data, it will be nice to bulk upsert all teis with one request
+ * insted of looping through all records. That should be possible by using create() function
+ * But currently it does not work.
+ *
+ * TODO: Consider if we will always create or if we need to UPSERT the TEIs
+ * */
 
-// each(
-//   '$.teis[*]',
-//   upsert(
-//     'trackedEntityInstances',
-//     state => ({
-//       ou: state.data.orgUnit,
-//       trackedEntityType: 'bsDL4dvl2ni',
-//     }),
-//     state => state.data
-//   )
-// );
-
-// get('tracker/trackedEntities', {
-//   orgUnit: 'Il7prf3KXCf',
-//   trackedEntityType: 'bsDL4dvl2ni',
+// create('tracker', state => ({ trackedEntities: state.teis }), {
+//   params: {
+//     importStrategy: 'CREATE_AND_UPDATE',
+//     atomicMode: 'OBJECT',
+//     async: 'false',
+//   },
 // });
+
+each(
+  '$.teis[*]',
+  upsert(
+    'trackedEntityInstances',
+    state => ({
+      ou: state.data.orgUnit,
+      filter: state.data.filter,
+      trackedEntityType: 'bsDL4dvl2ni',
+    }),
+    state => state.data
+  )
+);
