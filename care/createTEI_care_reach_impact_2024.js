@@ -1,8 +1,8 @@
 //Job to upload CSVs to DHIS2 'REACH AND IMPACT FORM' program
 fn(state => {
   const r = state.data.rows; 
-  console.log('r', r.gRaQKQpzOMT); 
-  console.log('gRaQKQpzOMT', state.data.rows.gRaQKQpzOMT); 
+  // console.log('r', r.gRaQKQpzOMT); 
+  // console.log('gRaQKQpzOMT', state.data.rows.gRaQKQpzOMT); 
   
   //state.teis = state.data.rows.map(r => {
  state.teis =  {
@@ -325,6 +325,8 @@ fn(state => {
       ],
     };
   //});
+  
+console.log('teis ::', state.teis); 
 return {...state, ...state.teis};
 });
 
