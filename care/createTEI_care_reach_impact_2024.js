@@ -321,8 +321,8 @@ fn(state => {
         },
       ],
     };
-  });
-  return state;
+  //});
+return {...state, ...state.teis};
 });
 
 
