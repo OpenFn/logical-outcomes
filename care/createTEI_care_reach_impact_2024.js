@@ -2,7 +2,7 @@
 fn(state => {
   const {r} = state.data.rows; 
   //state.teis = state.data.rows.map(r => {
-    return {
+ state.teis =  {
       trackedEntityType: 'bsDL4dvl2ni', //hardcoded for Reach form
       orgUnit: r.orgUnit, //e.g., "Il7prf3KXCf",
       filter: [`SgQW3vpnhuL:EQ:${r.SgQW3vpnhuL}`],
@@ -325,22 +325,6 @@ fn(state => {
   return state;
 });
 
-/**
- * Send data to DHIS2
- * Since we have lot's of data, it will be nice to bulk upsert all teis with one request
- * insted of looping through all records. That should be possible by using create() function
- * But currently it does not work.
- *
- * TODO: Consider if we will always create or if we need to UPSERT the TEIs
- * */
-
-// create('tracker', state => ({ trackedEntities: state.teis }), {
-//   params: {
-//     importStrategy: 'CREATE_AND_UPDATE',
-//     atomicMode: 'OBJECT',
-//     async: 'false',
-//   },
-// });
 
 each(
   '$.teis[*]',
