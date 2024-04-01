@@ -330,16 +330,26 @@ console.log('teis ::', state.teis);
 return {...state, ...state.teis};
 });
 
-
-each(
-  '$.teis[*]',
-  upsert(
+upsert(
     'trackedEntityInstances',
     state => ({
-      ou: state.data.orgUnit,
-      filter: state.data.filter,
+      ou: state.teis.orgUnit,
+      filter: state.teis.filter,
       trackedEntityType: 'bsDL4dvl2ni',
     }),
-    state => state.data
-  )
-);
+    state => state.teis
+  ); 
+
+
+// each(
+//   '$.teis[*]',
+//   upsert(
+//     'trackedEntityInstances',
+//     state => ({
+//       ou: state.data.orgUnit,
+//       filter: state.data.filter,
+//       trackedEntityType: 'bsDL4dvl2ni',
+//     }),
+//     state => state.data
+//   )
+// );
