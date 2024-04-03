@@ -334,8 +334,8 @@ upsert(
     'trackedEntityInstances',
     state => {
       const query = {
-        ou: state.data.orgUnit,
-        filter: state.data.filter,
+        ou: state.teis.orgUnit,
+        filter: state.teis.filter,
         trackedEntityType: 'bsDL4dvl2ni',
       }
 
