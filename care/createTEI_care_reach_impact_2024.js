@@ -332,12 +332,20 @@ return {...state, ...state.teis};
 
 upsert(
     'trackedEntityInstances',
-    state => ({
-      ou: state.teis.orgUnit,
-      filter: state.teis.filter,
-      trackedEntityType: 'bsDL4dvl2ni',
-    }),
-    state => state.teis
+    state => {
+      const query = {
+        ou: state.data.orgUnit,
+        filter: state.data.filter,
+        trackedEntityType: 'bsDL4dvl2ni',
+      }
+
+      console.log('*** query ::', query)
+      return query
+    },
+    state => {
+      console.log('*** data ::', state.data)
+      return state.data
+    }
   ); 
 
 
