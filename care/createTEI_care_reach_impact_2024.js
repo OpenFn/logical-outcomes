@@ -343,8 +343,8 @@ upsert(
       return query
     },
     state => {
-      console.log('*** data ::', state.data)
-      return state.data
+      console.log('*** data ::', state.teis)
+      return state.teis
     }
   ); 
 
