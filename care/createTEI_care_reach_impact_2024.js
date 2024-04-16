@@ -1,11 +1,7 @@
 //Job to upload CSVs to DHIS2 'REACH AND IMPACT FORM' program
 fn(state => {
-  const r = state.data.rows; 
-  // console.log('r', r.gRaQKQpzOMT); 
-  // console.log('gRaQKQpzOMT', state.data.rows.gRaQKQpzOMT); 
-  
-  //state.teis = state.data.rows.map(r => {
- state.teis =  {
+  state.teis = state.data.rows.map(r => {
+    return {
       trackedEntityType: 'bsDL4dvl2ni', //hardcoded for Reach form
       orgUnit: r.orgUnit, //e.g., "Il7prf3KXCf",
       filter: [`SgQW3vpnhuL:EQ:${r.SgQW3vpnhuL}`],
@@ -324,40 +320,21 @@ fn(state => {
         },
       ],
     };
-  //});
-  
-console.log('teis ::', state.teis); 
-return {...state, ...state.teis};
+  });
+  return state;
 });
 
-upsert(
+
+
+each(
+  '$.teis[*]',
+  upsert(
     'trackedEntityInstances',
-    state => {
-      const query = {
-        ou: state.teis.orgUnit,
-        filter: state.teis.filter,
-        trackedEntityType: 'bsDL4dvl2ni',
-      }
-
-      console.log('*** query ::', query)
-      return query
-    },
-    state => {
-      console.log('*** data ::', state.teis)
-      return state.teis
-    }
-  ); 
-
-
-// each(
-//   '$.teis[*]',
-//   upsert(
-//     'trackedEntityInstances',
-//     state => ({
-//       ou: state.data.orgUnit,
-//       filter: state.data.filter,
-//       trackedEntityType: 'bsDL4dvl2ni',
-//     }),
-//     state => state.data
-//   )
-// );
+    state => ({
+      ou: state.data.orgUnit,
+      filter: state.data.filter,
+      trackedEntityType: 'bsDL4dvl2ni',
+    }),
+    state => state.data
+  )
+);
