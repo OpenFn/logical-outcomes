@@ -1,9 +1,8 @@
 //Job to upload CSVs to DHIS2 'REACH AND IMPACT FORM' program
 fn((state) => {
   state.teis = state.data.rows
-    // .filter((r) => r.SgQW3vpnhuL)
+    .filter((r) => r.SgQW3vpnhuL)
     .map((r) => {
-      console.log(r.SgQW3vpnhuL, 'r.SgQW3vpnhuL')
       return {
         trackedEntityType: "bsDL4dvl2ni", //hardcoded for Reach form
         orgUnit: r.orgUnit, //e.g., "Il7prf3KXCf",
@@ -47,7 +46,7 @@ fn((state) => {
           },
           {
             attribute: "E4D2HUQgWdJ", //Col N tot_budget
-            value: r.E4D2HUQgWdJ && r.E4D2HUQgWdJ.replace(/,/g, ""),
+            value: r.E4D2HUQgWdJ.replace(/,/g, ""),
           },
           {
             attribute: "Utq5wtup77d", //Col O contact_01
