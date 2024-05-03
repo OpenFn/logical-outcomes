@@ -323,6 +323,8 @@ fn((state) => {
         ],
       };
     });
+    
+    console.upload(state.teis.length, 'teis')
   return state;
 });
 
