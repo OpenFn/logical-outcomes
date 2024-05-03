@@ -44,7 +44,7 @@ fn(state => {
         },
         {
           attribute: 'E4D2HUQgWdJ', //Col N tot_budget
-          value: r.E4D2HUQgWdJ.replace(/,/g, ''),
+          value: r.E4D2HUQgWdJ && r.E4D2HUQgWdJ.replace(/,/g, ''),
         },
         {
           attribute: 'Utq5wtup77d', //Col O contact_01
