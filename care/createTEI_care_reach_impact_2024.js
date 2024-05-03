@@ -324,7 +324,7 @@ fn((state) => {
       };
     });
     
-    console.upload(state.teis.length, 'teis')
+  console.log(state.teis.length, 'teis')
   return state;
 });
 
