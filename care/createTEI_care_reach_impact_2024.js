@@ -24,7 +24,7 @@ fn(state => {
         // },
         {
           attribute: 'SgQW3vpnhuL', //Col I piirs_duid
-          value: r.SgQW3vpnhuL,
+          value: r.SgQW3vpnhuL && r.SgQW3vpnhuL,
         },
         {
           attribute: 'mdGKgirgL27', //Col J password_duid
