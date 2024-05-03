@@ -1,7 +1,7 @@
 //Job to upload CSVs to DHIS2 'REACH AND IMPACT FORM' program
 fn((state) => {
   state.teis = state.data.rows
-    // .filter((r) => r.SgQW3vpnhuL)
+    .filter((r) => r.SgQW3vpnhuL)
     .map((r) => {
       return {
         trackedEntityType: "bsDL4dvl2ni", //hardcoded for Reach form
