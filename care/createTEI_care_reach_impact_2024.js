@@ -334,11 +334,15 @@ each(
   "$.teis[*]",
   upsert(
     "trackedEntityInstances",
-    (state) => ({
+    state => ({
       ou: state.data.orgUnit,
       filter: state.data.filter,
-      trackedEntityType: "bsDL4dvl2ni",
+      trackedEntityType: "bsDL4dvl2ni"
     }),
-    (state) => state.data
+    state => {
+      // Let's log this before we actually return it for the upsert
+      console.log("What will we send?", state.data)
+      return state.data
+    }
   )
 );
