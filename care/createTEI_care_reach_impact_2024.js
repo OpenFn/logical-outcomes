@@ -251,11 +251,11 @@ fn((state) => {
             value: r.eaNoBYvD3RI,
           },
           //*****************************************************//
-          //PROBLEM MAPPING - THROWS 500 ERROR IN DEV INSTANCE
-          // {
-          //   attribute: "yWBpg9W1Xp8", //Col BJ r2h_sup5_attribute
-          //   value: r.yWBpg9W1Xp8,
-          // },
+          //NEW MAPPING FOR DEV INSTANCE - Updated 7 May 2024
+          {
+            attribute: "kX6jkGBkO3e", //Col BJ r2h_sup5_attribute - formerly id yWBpg9W1Xp8
+            value: r.kX6jkGBkO3e,
+          },
           //*****************************************************//
           {
             attribute: "a16xx0po2c8", //Col BK r2h_0r2h_attribute
