@@ -162,10 +162,10 @@ fn((state) => {
             attribute: "UKyDJ0H1Wgn", //Col AN path_18_attribute
             value: r.UKyDJ0H1Wgn,
           },
-          {
-            attribute: "UKyDJ0H1Wgn", //Col AN path_18_attribute
-            value: r.UKyDJ0H1Wgn,
-          },
+          // {
+          //   attribute: "UKyDJ0H1Wgn", //Col AN path_18_attribute
+          //   value: r.UKyDJ0H1Wgn,
+          // },
           {
             attribute: "H0UCdbFBGkJ", //Col AO hum_19_attribute
             value: r.H0UCdbFBGkJ,
