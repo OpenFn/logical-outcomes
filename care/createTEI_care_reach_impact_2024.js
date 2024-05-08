@@ -67,10 +67,6 @@ fn((state) => {
             value: r.VBjtTtPTZ8F,
           },
           {
-            attribute: "VBjtTtPTZ8F", //Col R contact_02
-            value: r.VBjtTtPTZ8F,
-          },
-          {
             attribute: "LXmG6qfckEk", //Col S position_02
             value: r.LXmG6qfckEk,
           },
@@ -101,10 +97,6 @@ fn((state) => {
           {
             attribute: "BdPTbz4VUMz", //Col Z geq_05_attribute
             value: r.BdPTbz4VUMz,
-          },
-          {
-            attribute: "NDAXlk67mnA", //Col AA geq_06_attribute
-            value: r.NDAXlk67mnA,
           },
           {
             attribute: "NDAXlk67mnA", //Col AA geq_06_attribute
@@ -162,10 +154,6 @@ fn((state) => {
             attribute: "UKyDJ0H1Wgn", //Col AN path_18_attribute
             value: r.UKyDJ0H1Wgn,
           },
-          // {
-          //   attribute: "UKyDJ0H1Wgn", //Col AN path_18_attribute
-          //   value: r.UKyDJ0H1Wgn,
-          // },
           {
             attribute: "H0UCdbFBGkJ", //Col AO hum_19_attribute
             value: r.H0UCdbFBGkJ,
