@@ -100,7 +100,7 @@ fn((state) => {
           },
           {
             attribute: "NDAXlk67mnA", //Col AA geq_06_attribute
-            value: r.NDAXlk67mnA,
+            value: r.NDAXlk67mnA ==='true' ? true : false,
           },
           {
             attribute: "cGCNm6yFef7", //Col AB geq_07_attribute
