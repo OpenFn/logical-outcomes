@@ -10,7 +10,7 @@ fn((state) => {
         attributes: [
           {
             attribute: "INS05jiIWB0", //Col E date_start
-            value: r["Enrollment date"], //INS05jiIWB0
+            value: r.INS05jiIWB0, //INS05jiIWB0
           },
           {
             attribute: "nNbMsTUf3M6", //Col F date_end
