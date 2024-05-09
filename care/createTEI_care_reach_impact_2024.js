@@ -9,11 +9,11 @@ fn((state) => {
         filter: [`SgQW3vpnhuL:EQ:${r.SgQW3vpnhuL}`],
         attributes: [
           {
-            attribute: "INS05jiIWB0", //Col E date_start
-            value: r.INS05jiIWB0, //INS05jiIWB0
+            attribute: "INS05jiIWB0", //Col F date_start
+            value: r.INS05jiIWB0,
           },
           {
-            attribute: "nNbMsTUf3M6", //Col F date_end
+            attribute: "nNbMsTUf3M6", //Col G date_end
             value: r.nNbMsTUf3M6,
           },
           {
